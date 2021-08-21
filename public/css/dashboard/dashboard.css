@@ -1,0 +1,126 @@
+@media only screen and (min-width: 800px) {
+    .graph-cards-area{
+        overflow: hidden;
+        margin: 2vw 0;
+        padding: 0 4vw;
+    }
+    .graph-cards-area .card{
+        float: right;
+        margin: 1vw;
+        background-color: var(--background);
+        border-radius: 0.5vw;
+        box-shadow:  0.3vw  0.3vw 0.6vw #bebebe,
+                    -0.3vw -0.3vw 0.6vw #ffffff;
+        padding: 1vw 2vw;
+        width: 17vw;
+        direction: ltr;
+        position: relative;
+    }
+    .graph-cards-area .card .title{
+        color: var(--brown);
+        display: inline;
+        position: absolute;
+        right: 2vw;
+        top: 1vw;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+    }
+    h1.title {
+        width: 85%;
+        margin: auto;
+        font-family: 'iransans';
+        font-size: 1.5vw;
+        color: var(--blue);
+        border-bottom: lightgray 0.1vw solid;
+        padding: 0.3vw 0;
+    }
+    .product-cards-area{
+        width: 85%;
+        margin: auto;
+        padding: 2vw 0;
+        overflow: hidden;
+    }
+    .product-cards-area .not-found{
+        text-align: center;
+        color: rgb(145, 145, 145);
+        font-size: 1.3vw;
+    }
+    .product-cards-area .not-found a{
+        text-decoration: none;
+        color: var(--blue);
+        font-weight: bold;
+    }
+    .product-cards-area .not-found a:hover{
+        color: chocolate;
+    }
+    .product-cards-area .card{
+        float: right;
+        width: 30%;
+        margin: 1vw;
+        background-color: var(--background);
+        box-shadow:  0.3vw  0.3vw 0.6vw #bebebe,
+                    -0.3vw -0.3vw 0.6vw #ffffff;
+        border-radius: 1vw;
+        min-height: 26vw;
+        position: relative;
+    }
+    .product-cards-area .card .image img{
+        width: 100%;
+        height: 12vw;
+        border-top-left-radius: 1vw;
+        border-top-right-radius: 1vw;
+    }
+
+    .product-cards-area .card .title{
+        color: var(--brown);
+        font-weight: bold;
+        width: 90%;
+        margin: auto;
+        font-size: 1.2vw;
+    }
+    .product-cards-area .card .text{
+        color: rgb(90, 90, 90);
+        width: 90%;
+        margin: auto;
+        font-size: 1vw;
+        text-align: justify;
+        
+    }
+    .product-cards-area .card .price{
+        position: absolute;
+        bottom: 1vw;
+        left: 2vw;
+        font-size: 1.2vw;
+        font-weight: bold;
+        color: rgb(0, 190, 0);
+    }
+    .product-cards-area .card.add{
+        background-color: rgb(255, 192, 185);
+        text-align: center;
+        cursor: pointer;
+        transition-duration: 500ms;
+    }
+    .product-cards-area .card.add:hover{
+        background-color: salmon;
+    }
+    .product-cards-area .card.add i.plus{
+        color: white;
+        margin: 6vw auto;
+        margin-bottom: 0;
+        font-size: 10vw;
+    }
+    .product-cards-area .card.add .add-text{
+        color: white;
+        font-size: 2vw;
+        margin: 0;
+    }
+}
+@media only screen and (max-width: 800px) {
+    
+}
+
+
+
+
+
+

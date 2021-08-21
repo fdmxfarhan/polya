@@ -1,0 +1,204 @@
+/* --------- Declarations ----------- */
+@font-face{
+    font-family: 'iransans';
+    src: url('iransans.ttf');
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes goRight {
+    from {margin-right: 3vw;}
+    to {margin-right: 0;}
+}
+@keyframes goUp {
+    from {margin-top: 5vw;}
+    to {margin-top: 0.5vw;}
+}
+:root {
+    /* --purple: #8305be; */
+    --background: #ececec;
+    --brown: #3e2917;
+    --blue: #1971e4;
+    --yellow: #febf18;
+    --hover: #8305be;
+    --dark: #050507;
+    --light: white;
+    --kerem: #eec278;
+    --red: #ff0000;
+    --textcolor: rgb(29, 29, 29);
+}
+body{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-family: 'iransans';
+    direction: rtl;
+    background-color: white;
+}
+
+.black-modal{
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+.transparent-modal{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.dashboard{
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+@media only screen and (min-width: 800px) {
+    .dashboard .side-bar{
+        background-color: var(--yellow);
+        position: fixed;
+        height: 100%;
+        margin: 0;
+        width: 20%;
+    }
+    .dashboard .content-area{
+        background-color: var(--background);
+        margin: 0;
+        overflow: hidden;
+        width: 80%;
+        margin-right: 20%;
+        min-height: 100vh;
+    }
+    .dashboard .side-bar .avatar{
+        width: 60%;
+        margin: auto;
+        margin-top: 2vw;
+    }
+    .dashboard .side-bar .avatar img{ width: 100%;}
+    .dashboard .side-bar .name{
+        font-weight: bold;
+        font-family: 'iransans';
+        font-size: 1.5vw;
+        text-align: center;
+        color: var(--brown);
+    }
+    .dashboard .side-bar .nav-links{
+        margin: 3vw 0;
+    }
+    .dashboard .side-bar .nav-links a.sidebar-nav-link{
+        color: white;
+        text-decoration: none;
+        font-family: 'iransans';
+        padding: 0.4vw 2vw;
+        font-size: 1.4vw;
+        display: block;
+    }
+    .dashboard .side-bar .nav-links a.sidebar-nav-link:hover{
+        color: white;
+        background-color: #ffd258;
+    }
+    .dashboard .side-bar i{
+        padding-left: 1vw;
+        font-size: 2vw;
+    }
+    .dashboard .side-bar .nav-links .break{
+        background-color: var(--background);
+        width: 80%;
+        height: 0.1vw;
+        margin: auto;
+    }
+    .dashboard .side-bar a.logout{
+        display: block;
+        color: var(--red);
+        text-decoration: none;
+        font-family: 'iransans';
+        padding: 0.4vw 2vw;
+        font-size: 1.5vw;
+        font-weight: bold;
+        text-align: center;
+        position: absolute;
+        bottom: 1vw;
+    }
+    .dashboard .content-area .message-area{
+        margin: 0;
+        padding: 0;
+    }
+    .dashboard .content-area .message-area .success-msg{
+        background-color: greenyellow;
+        border-radius: 1vw;
+        width: 85%;
+        margin: 1vw auto;
+        padding: 0.3vw 1vw;
+        position: relative;
+    }
+    .dashboard .content-area .message-area .notif-msg{
+        background-color: salmon;
+        border-radius: 1vw;
+        width: 85%;
+        margin: 1vw auto;
+        padding: 0.3vw 1vw;
+        position: relative;
+    }
+    .dashboard .content-area .message-area i.close-success-msg, .dashboard .content-area .message-area i.close-notif-msg{
+        position: absolute;
+        left: 1vw;
+        top: 1vw;
+        color: var(--brown);
+        cursor: pointer;
+    }
+    .dashboard .content-area .message-area i.close-success-msg:hover, .dashboard .content-area .message-area i.close-notif-msg:hover{
+        color: var(--red);
+    }
+    .popup-area{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 11;
+    }
+    .popup-area .popup{
+        background-color: white;
+        width: 75%;
+        margin: 5vw auto;
+        border-radius: 1vw;
+        position: relative;
+        padding: 2vw;
+    }
+    .popup-area .popup .close-popup{
+        position: absolute;
+        top: 1.5vw;
+        left: 2vw;
+        font-size: 1.3vw;
+        cursor: pointer;
+    }
+    .popup-area .popup .close-popup:hover{
+        color: var(--red);
+    }
+    .popup-area .popup h1.popup-title{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        color: var(--blue);
+        border-bottom: var(--blue) 0.1vw solid;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        margin-bottom: 1vw;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    
+}

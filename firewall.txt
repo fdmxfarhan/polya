@@ -1,0 +1,6 @@
+firewall-cmd --list-all
+
+firewall-cmd --permanent --zone=public --add-service=http
+
+firewall-cmd --reload
+

@@ -1,0 +1,255 @@
+@media only screen and (min-width: 800px) {
+    .register{
+        border-radius: 2vw;
+        box-shadow: 0 0.3vw 0.8vw 0.3vw rgba(0, 0, 0, 0.2);
+        width: 45%;
+        padding: 2vw 3vw;
+        margin: 3vw auto;
+    }
+    .register h1.title{
+        color: var(--purple);
+        font-family: 'iransans';
+        font-size: 1.7vw;
+        text-align: center;
+    }
+    .register h1.title i{
+        padding-left: 1vw;
+    }
+    .register form, .register form *{
+        display: block;
+        text-align: center;
+    }
+    .register .text-input-area{
+        position: relative;
+        width: 88%;
+        margin: 1.5vw auto;
+        /* background-color: lightblue; */
+    }
+    .register input.textinput{
+        display: block;
+        width: 35vw;
+        border: none;
+        border-radius: 2vw;
+        padding: 0.5vw 1vw;
+        padding-right: 3vw;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        border: #ae00ff3b 0.1vw solid;
+        box-shadow: 0 0.3vw 0.8vw 0.2vw #5b167a3b;
+        text-align: right;
+        direction: rtl;
+    }
+    .register input.textinput:focus{
+        outline: none;
+        border: purple 0.1vw solid;
+    }
+    .register .text-input-area i{
+        position: absolute;
+        right: 1vw;
+        top: 1vw;
+        color: var(--purple);
+        font-size: 1.3vw;
+    }
+    .register button.submit{
+        cursor: pointer;
+        width: 100%;
+        display: block;
+        color: white;
+        background-color: var(--purple);
+        border: none;
+        border-radius: 2vw;
+        padding: 0.6vw 1vw;
+        padding-right: 3vw;
+        margin: 1vw auto;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        text-align: center;
+    }
+    .register button.submit:hover{
+        background-color: chocolate;
+    }
+    .register button.submit:focus{
+        outline: none;
+    }
+    .register a.link{
+        color: var(--blue);
+        text-decoration: none;
+    }
+    .errors-area{
+        /* background-color: coral; */
+        position: fixed;
+        width: 40vw;
+        bottom: 0;
+        left: 2vw;
+        z-index: 100;
+    }
+    .errors-area .error{
+        background-color: rgba(220, 20, 20, 0.842);
+        position: relative;
+        margin: 1vw;
+        border-radius: 1vw;
+        color: white;
+        padding: 0.7vw 1vw;
+        padding-bottom: 0;
+    }
+    .errors-area .error.green-error{
+        background-color: rgba(1, 170, 9, 0.842);
+        position: relative;
+        margin: 1vw;
+        border-radius: 1vw;
+        color: white;
+        padding: 0.7vw 1vw;
+        padding-bottom: 0;
+    }
+    
+    .errors-area .error h1{
+        display: inline-block;
+        padding-right: 0;
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+    }
+    .errors-area .error i{
+        display: inline-block;
+        padding-left: 1vw;
+    }
+    .errors-area .error i.close-error{
+        position: absolute;
+        top: 1vw;
+        left: 0;
+        cursor: pointer;
+    }
+    .errors-area .error .time-interval{
+        background-color: rgba(255, 255, 255, 0.664);
+        /* position: absolute;
+        bottom: 0; */
+        width: 0;
+        height: 0.3vw;
+        margin-top: 0.5vw;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .register{
+        border-radius: 3vw;
+        box-shadow: 0 1vw 1.5vw 1vw rgba(0, 0, 0, 0.2);
+        width: 85%;
+        padding: 2vw 3vw;
+        margin: 6vw auto;
+    }
+    .register h1.title{
+        color: var(--purple);
+        font-family: 'iransans';
+        font-size: 3.7vw;
+        text-align: center;
+    }
+    .register h1.title i{
+        padding-left: 1vw;
+    }
+    .register form, .register form *{
+        display: block;
+        text-align: center;
+    }
+    .register .text-input-area{
+        position: relative;
+        width: 88%;
+        margin: 3vw auto;
+        /* background-color: lightblue; */
+    }
+    .register input.textinput{
+        display: block;
+        width: 64vw;
+        border: none;
+        border-radius: 4vw;
+        padding: 1vw 3vw;
+        padding-right: 8vw;
+        font-family: 'iransans';
+        font-size: 3.5vw;
+        border: #ae00ff3b 0.1vw solid;
+        box-shadow: 0 0.3vw 0.8vw 0.2vw #5b167a3b;
+        text-align: right;
+        direction: rtl;
+    }
+    .register input.textinput:focus{
+        outline: none;
+        border: purple 0.1vw solid;
+    }
+    .register .text-input-area i{
+        position: absolute;
+        right: 3vw;
+        top: 2vw;
+        color: var(--purple);
+        font-size: 3.2vw;
+    }
+    .register button.submit{
+        cursor: pointer;
+        width: 100%;
+        display: block;
+        color: white;
+        background-color: var(--purple);
+        border: none;
+        border-radius: 3vw;
+        padding: 1vw 1vw;
+        padding-right: 3vw;
+        margin: 1vw auto;
+        font-family: 'iransans';
+        font-size: 3.2vw;
+        text-align: center;
+    }
+    .register button.submit:hover{
+        background-color: chocolate;
+    }
+    .register button.submit:focus{
+        outline: none;
+    }
+    .register a.link{
+        color: var(--blue);
+        text-decoration: none;
+    }
+    .errors-area{
+        /* background-color: coral; */
+        position: fixed;
+        width: 90%;
+        bottom: 0;
+        left: 5%;
+        z-index: 100;
+    }
+    .errors-area .error{
+        background-color: rgba(220, 20, 20, 0.842);
+        position: relative;
+        margin: 1vw;
+        border-radius: 2vw;
+        color: white;
+        padding: 1vw 3vw;
+    }
+    .errors-area .error h1{
+        display: inline-block;
+        padding-right: 0;
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 3.2vw;
+    }
+    .errors-area .error i{
+        display: inline-block;
+        padding-left: 3vw;
+    }
+    .errors-area .error i.close-error{
+        position: absolute;
+        top: 2vw;
+        left: 0;
+        cursor: pointer;
+    }
+    .errors-area .error .time-interval{
+        background-color: rgba(255, 255, 255, 0.664);
+        /* position: absolute;
+        bottom: 0; */
+        width: 0;
+        height: 1vw;
+        margin-top: 0.5vw;
+    }
+}
+
+
+
+
+
