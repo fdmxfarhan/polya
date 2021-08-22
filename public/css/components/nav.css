@@ -1,0 +1,47 @@
+@media only screen and (min-width: 800px) {
+    nav{
+        width: 100%;
+        background-color: white;
+        position: sticky;
+        overflow: hidden;
+        top: 0;
+    }
+    nav .logoarea {
+        float: right;
+        padding: 0.5vw 3vw;
+        padding-bottom: 0;
+    }
+    nav .logoarea img{
+        width: 3.5vw;
+        display: inline;
+    }
+    nav a.nav-link{
+        float: left;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        color: var(--text);
+        text-decoration: none;
+        padding: 1.5vw 2vw;
+    }
+    nav a.nav-link.orange{
+        background-color: var(--orange);
+        color: white;
+    }
+    nav a.nav-link.orange:hover{
+        font-size: 1.3vw;
+        padding: 1.45vw 1.8vw;
+    }
+    nav a.nav-link.normal{
+        border-top: transparent 0.3vw solid;
+        padding: 1.35vw 2vw;
+    }
+    nav a.nav-link.normal:hover{
+        transition-duration: 500ms;
+        border-top: var(--gray) 0.3vw solid;
+    }
+    nav a.nav-link.dropdown i{
+        padding: 0 0.5vw;
+        font-size: 0.9vw;
+    }
+}
+
