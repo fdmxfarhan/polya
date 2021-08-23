@@ -66,8 +66,254 @@ body{
 }
 
 @media only screen and (min-width: 800px) {
+    header{
+        position: relative;
+        overflow: hidden;
+    }
     header img{
         width: 100%;
+    }
+    header .dark-overlay{
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 98.5%;
+        z-index: 10;
+    }
+    header .info{
+        position: absolute;
+        z-index: 20;
+        top: 7vw;
+        right: 5%;
+        color: white;
+    }
+    header .info h1{
+        font-family: 'btitr';
+        font-size: 7vw;
+        margin: 0;
+        margin-top: -4vw;
+        /* margin-bottom: -1vw; */
+    }
+    header .info h2{
+        font-size: 2vw;
+        font-family: 'iransans';
+        font-weight: normal;
+        margin: 0;
+        margin-bottom: 7vw;
+    }
+    header .info a.button{
+        font-family: 'iransans';
+        background-color: white;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 1.5vw;
+        padding: 2vw 5vw;
+        margin-left: 4vw;
+        transition-duration: 500ms;
+    }
+    header .info a.button.blue-button{
+        background-color: var(--button);
+        color: white;
+    }
+    header .info a.button:hover{
+        background-color: var(--hover);
+        color: white;
+    }
+    header .info a.video-link{
+        font-family: 'iransans';
+        color: white;
+        text-decoration: none;
+        font-size: 1.5vw;
+        padding: 1vw 0;
+        margin-left: 4vw;
+        transition-duration: 500ms;
+        font-weight: bold;
+    }
+    header .info a.video-link i{
+        color: var(--text);
+        background-color: white;
+        padding: 1.3vw 1.3vw 1.3vw 1.6vw;
+        border-radius: 50%;
+        font-size: 2vw;
+        margin-left: 1vw;
+    }
+    header .control{
+        position: absolute;
+        top: 10vw;
+        left: 2%;
+        z-index: 20;
+    }
+    header .control i{
+        display: block;
+        margin: auto;
+        margin-bottom: 1.5vw;
+        font-size: 1.6vw;
+        color: rgba(255, 255, 255, 0.3);
+        transition-duration: 500ms;
+        cursor: pointer;
+    }
+    header .control i.active{
+        color: rgba(255, 255, 255, 0.8);
+    }
+    header .control i:hover{
+        color: rgba(255, 255, 255, 0.8);
+    }
+    section .mockup{
+        overflow: hidden;
+        width: 80%;
+        margin: auto;
+        margin-top: 8vw;
+        margin-bottom: 0;
+        /* background-color: lightblue; */
+    }
+    .col70{width: 70%;}
+    .col65{width: 65%;}
+    .col60{width: 60%;}
+    .col50{width: 50%;}
+    .col40{width: 40%;}
+    .col35{width: 35%;}
+    .col30{width: 30%;}
+    .col20{width: 20%;}
+    .col10{width: 10%;}
+    section.light{background-color: var(--light-background);color: var(--text);}
+    section.dark{background-color: var(--dark-background);color: white;}
+    section{
+        margin: 0;
+        overflow: hidden;
+    }
+    section .column{
+        float: right;
+        /* background-color: lightpink; */
+        overflow: hidden;
+    }
+    section .mockup .column.img{
+        height: 37vw;
+    }
+    section .mockup .column img{
+        width: 90%;
+        margin: 0 5%;
+    }
+    section .mockup .column h1{
+        font-family: 'iransans';
+        margin: 0;
+        font-size: 3vw;
+        font-weight: bold;
+        line-height: 4vw;
+    }
+    section .mockup .column p{
+        color: var(--gray);
+        font-size: 1.5vw;
+        margin-top: 2.5vw;
+    }
+    section .mockup .column a.button{
+        font-family: 'iransans';
+        background-color: var(--button);
+        color: white;
+        text-decoration: none;
+        font-size: 1.5vw;
+        padding: 2vw 5vw;
+        margin-left: 4vw;
+        transition-duration: 500ms;
+        display: block;
+        width: fit-content;
+        margin-top: 2vw;
+    }
+    section .mockup .column a.button:hover{
+        background-color: var(--hover);
+    }
+    section .mockup .column.info{
+        padding-top: 8vw;
+    }
+    section .statistics{
+        overflow: hidden;
+        width: 80%;
+        margin: 3vw auto;
+    }
+    section .statistics .column.info{
+        padding-top: 15vw;
+    }
+    section .statistics .column.info h1{
+        font-family: 'iransans';
+        font-size: 3vw;
+        margin: 0;
+        line-height: 4.5vw;
+    }
+    section .statistics .column.info h2{
+        font-weight: normal;
+        font-family: 'iransans';
+        font-size: 1.4vw;
+    }
+    section .statistics .column.info h2 i{
+        padding-left: 0.7vw;
+        font-size: 2vw;
+    }
+    section .statistics .column .item{
+        overflow: hidden;
+        margin: 4vw 0;
+    }
+    section .statistics .column .item i{
+        float: right;
+        font-size: 3.5vw;
+        width: 5vw;
+        text-align: center;
+        font-weight: normal;
+    }
+    section .statistics .column .item h1{
+        float: right;
+        font-weight: normal;
+        font-family: 'iransans';
+        font-size: 1.5vw;
+        padding-right: 1vw;
+        margin: 0;
+        padding-top: 0.6vw;
+        /* padding: 1vw; */
+    }
+    section .card-content{
+        overflow: hidden;
+        width: 90%;
+        margin: 3vw auto;
+    }
+    section .card-content h1.title{
+        text-align: center;
+        color: black;
+        font-size: 3vw;
+    }
+    section .card-content h2.title{
+        font-weight: normal;
+        font-size: 1.7vw;
+        margin-top: 8vw;
+    }
+    section .card-content h2.title i{
+        color: rgb(255, 129, 25);
+        font-size: 1.7vw;
+        padding-left: 1vw;
+    }
+    .cards-view{
+        margin-top: 2vw;
+        overflow: hidden;
+        width: 100%;
+    }
+    .cards-view .card{
+        float: right;
+        margin-left: 2vw;
+        margin-top: 1vw;
+    }
+    .cards-view .card h1{
+        margin: 0;
+        text-align: center;
+        font-size: 1.3vw;
+        color: var(--text);
+    }
+    .cards-view .card img{
+        width: 15vw;
+        height: 15vw;
+        border-radius: 1vw;
+    }
+    .cards-view .card img:hover{
+        box-shadow: 0 0 0.8vw 0.3vw rgba(0, 0, 0, 0.2);
+
     }
 }
 
