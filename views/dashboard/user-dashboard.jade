@@ -5,84 +5,119 @@ block styles
     link(rel="stylesheet", href="/css/dashboard/dashboard.css")
 
 block content
-    .message-area
-        -if(login){
-            .success-msg
-                i.fa.fa-times.close-success-msg
-                ul 
-                    li به پنل کاربری خود خوش آمدید
-        -}
-        -if(false){
-            .notif-msg
-                i.fa.fa-times.close-notif-msg
-                ul 
-                    li شما n صورت حساب پرداخت نشده دارید. جهت پرداخت صورت حساب خود 
-                        a(href="#") اینجا 
-                        | را کلیک کنید.
-        -}
-
-    .graph-cards-area
-        .card 
-            .title تعداد دوره ها
-            //- .number 100
-            .progress-circle.over50.p85
-                span 100
-                .left-half-clipper
-                    .first50-bar
-                    .value-bar
-        .card 
-            .title تعداد شرکت کنندگان
-            //- .number 200
-            .progress-circle.over50.p85
-                span 200
-                .left-half-clipper
-                    .first50-bar
-                    .value-bar
-        .card 
-            .title تعداد دوره ها
-            //- .number 100
-            .progress-circle.over50.p85
-                span 100
-                .left-half-clipper
-                    .first50-bar
-                    .value-bar
-        
-    h1.title دوره های من
-    .product-cards-area
-        .not-found شما هیچ دوره ای ثبت نام نکرده اید. برای ثبت نام 
-            a(href="#") اینجا 
-            | کلیک کنید.
-    h1.title دوره های پیشنهادی برای شما
-    .product-cards-area
-        //- .not-found شما هیچ دوره ای ثبت نام نکرده اید. برای ثبت نام 
-        //-     a(href="#") اینجا 
-        //-     | کلیک کنید.
-        .card 
-            .image 
-                img(src="/img/classes/img-01.jpg")
-            .title دوره آموزشی 1
-            .text 
-                | در این قسمت توضیحات مورد نیاز در مورد دوره آموزشی نوشته می شود. با کلیک بر روی دکمه ثبت نام این دوره به لیست دوره ها اضافه شده و پس از پرداخت هزینه فعال می شود.
-            .price 100.000 تومان
-        .card 
-            .image 
-                img(src="/img/classes/img-02.png")
-            .title دوره آموزشی 1
-            .text 
-                | در این قسمت توضیحات مورد نیاز در مورد دوره آموزشی نوشته می شود. با کلیک بر روی دکمه ثبت نام این دوره به لیست دوره ها اضافه شده و پس از پرداخت هزینه فعال می شود.
-            .price 100.000 تومان
-        .card 
-            .image 
-                img(src="/img/classes/img-01.jpg")
-            .title دوره آموزشی 1
-            .text 
-                | در این قسمت توضیحات مورد نیاز در مورد دوره آموزشی نوشته می شود. با کلیک بر روی دکمه ثبت نام این دوره به لیست دوره ها اضافه شده و پس از پرداخت هزینه فعال می شود.
-            .price 100.000 تومان
-        .card 
-            .image 
-                img(src="/img/classes/img-02.png")
-            .title دوره آموزشی 1
-            .text 
-                | در این قسمت توضیحات مورد نیاز در مورد دوره آموزشی نوشته می شود. با کلیک بر روی دکمه ثبت نام این دوره به لیست دوره ها اضافه شده و پس از پرداخت هزینه فعال می شود.
-            .price 100.000 تومان
+    //- .message-area
+    //-     -if(login){
+    //-         .success-msg
+    //-             i.fa.fa-times.close-success-msg
+    //-             ul 
+    //-                 li به پنل کاربری خود خوش آمدید
+    //-     -}
+    //-     -if(false){
+    //-         .notif-msg
+    //-             i.fa.fa-times.close-notif-msg
+    //-             ul 
+    //-                 li شما n صورت حساب پرداخت نشده دارید. جهت پرداخت صورت حساب خود 
+    //-                     a(href="#") اینجا 
+    //-                     | را کلیک کنید.
+    //-     -}
+    .top-info 
+        i.fa.fa-copy.class-icon
+        .info 
+            h1.title عنوان کلاس
+            .creator سازنده: 
+                a(href="#")= user.fullname
+                .numbers 
+                    .num 3 
+                    | کارت از
+                    .num 20 
+                    | کارت مطالعه شده
+            .links 
+                a.icon(href="#") 
+                    i.fa.fa-gear 
+                a.icon(href="#") 
+                    i.fa.fa-share-alt
+                a.button(href="#") یادگیری 2 دسته
+    
+    .tabs-view 
+        .tab#tab1 درباره
+        .tab.active#tab1 دسته ها (11)
+        .tab#tab1 کاربران (193)
+    #tab2 
+        .decks-view
+            a(href="#") 
+                .deck 
+                    i.fa.fa-circle-o.circle
+                    .percent 20%
+                    .info
+                        h1 عنوان دسته
+                        .progress-bar
+                            .passed(style="width: 20%")
+                    i.fa.fa-chevron-left.left-icon 
+                    i.fa.fa-eye.left-icon 
+                    a(href="#") 
+                        i.fa.fa-play.left-icon 
+            a(href="#") 
+                .deck 
+                    i.fa.fa-circle-o.circle
+                    .percent 1%
+                    .info
+                        h1 عنوان دسته
+                        .progress-bar
+                            .passed(style="width: 1%")
+                    i.fa.fa-chevron-left.left-icon 
+                    i.fa.fa-eye.left-icon 
+                    a(href="#") 
+                        i.fa.fa-play.left-icon 
+            a(href="#") 
+                .deck 
+                    i.fa.fa-circle-o.circle
+                    .percent.gray 0%
+                    .info
+                        h1 عنوان دسته
+                        .progress-bar
+                            .passed(style="width: 0%")
+                    i.fa.fa-chevron-left.left-icon 
+                    i.fa.fa-eye.left-icon 
+                    a(href="#") 
+                        i.fa.fa-play.left-icon 
+            a(href="#") 
+                .deck 
+                    i.fa.fa-circle-o.circle
+                    i.fa.fa-lock.lock
+                    .info
+                        h1 عنوان دسته
+                        .progress-bar
+                            .passed(style="width: 0%")
+                    i.fa.fa-chevron-left.left-icon 
+                    i.fa.fa-eye.left-icon 
+                    a(href="#") 
+                        i.fa.fa-play.left-icon 
+                    a.unlock(href="#") باز کردن
+            a(href="#") 
+                .deck 
+                    i.fa.fa-circle-o.circle
+                    i.fa.fa-lock.lock
+                    .info
+                        h1 عنوان دسته
+                        .progress-bar
+                            .passed(style="width: 0%")
+                    i.fa.fa-chevron-left.left-icon 
+                    i.fa.fa-eye.left-icon 
+                    a(href="#") 
+                        i.fa.fa-play.left-icon 
+                    a.unlock(href="#") باز کردن
+            a(href="#") 
+                .deck 
+                    i.fa.fa-circle-o.circle
+                    i.fa.fa-lock.lock
+                    .info
+                        h1 عنوان دسته
+                        .progress-bar
+                            .passed(style="width: 0%")
+                    i.fa.fa-chevron-left.left-icon 
+                    i.fa.fa-eye.left-icon 
+                    a(href="#") 
+                        i.fa.fa-play.left-icon 
+                    a.unlock(href="#") باز کردن
+            
     script(src="/js/dashboard.js") 

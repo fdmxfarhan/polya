@@ -21,16 +21,16 @@ router.get('/login', (req, res, next) => {
 });
   
 router.post('/register', (req, res, next) => {
-    const { firstName, lastName, address, phone, school, idNumber, password, configpassword } = req.body;
+    const { firstName, lastName, email, password, confirm} = req.body;
     const role = 'user', card = 0;
     const ipAddress = req.connection.remoteAddress;
     let errors = [];
     /// check required
-    if(!firstName || !lastName || !address || !phone || !school || !idNumber || !password || !configpassword){
+    if(!firstName || !lastName || !email || !password || !confirm){
         errors.push({msg: 'لطفا موارد خواسته شده را کامل کنید!'});
     }
     /// check password match
-    if(password !== configpassword){
+    if(password !== confirm){
         errors.push({msg: 'تایید رمز عبور صحیح نمیباشد!'});
     }
     /// check password length
@@ -39,29 +39,31 @@ router.post('/register', (req, res, next) => {
     }
     ///////////send evreything 
     if(errors.length > 0 ){
-        res.render('register', { firstName, lastName, address, phone, school, idNumber, errors});
+        res.render('register', {  firstName, lastName, email, password, confirm, errors});
     }
     else{
         const fullname = firstName + ' ' + lastName;
         // validation passed
-        User.findOne({ idNumber: idNumber})
+        User.findOne({ email: email})
             .then(user =>{
             if(user){
                 // user exist
                 errors.push({msg: 'کد ملی قبلا ثبت شده است.'});
-                res.render('register', { firstName, lastName, address, phone, school, idNumber, errors });
+                res.render('register', { firstName, lastName, email, password, confirm, errors });
             }
             else {
-                const newUser = new User({ipAddress, fullname, firstName, lastName, address, phone, school, idNumber, password, role, card});
+                const newUser = new User({firstName, lastName, email, password, role, card, fullname});
                 // Hash password
                 bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt, (err, hash) => {
                 if(err) throw err;
                 newUser.password = hash;
                 newUser.save()
                     .then(user => {
-                        req.flash('success_msg', 'ثبت نام با موفقیت انجام شد. اکنون میتوانید وارد شوید.');
-                        res.redirect('/users/login');
-                         
+                        passport.authenticate('local', {
+                            successRedirect: '/dashboard?login=true',
+                            failureRedirect: '/users/login',
+                            failureFlash: true
+                        })(req, res, next);
                     }).catch(err => console.log(err));
                 }));
                 console.log(newUser);
@@ -71,14 +73,14 @@ router.post('/register', (req, res, next) => {
 });
   
 router.post('/login', function(req, res, next){
-    const { username, password} = req.body;
+    const { email, password} = req.body;
     let errors = [];
     /// check required
-    if(!username || !password){
+    if(!email || !password){
       errors.push({msg: 'لطفا موارد خواسته شده را کامل کنید!'});
     }
     if(errors.length > 0 ){
-      res.render('login', { errors, username, password});
+      res.render('login', { errors, email, password});
     }
     passport.authenticate('local', {
       successRedirect: '/dashboard?login=true',

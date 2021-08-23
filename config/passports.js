@@ -7,12 +7,12 @@ const User = require('../models/User');
 
 module.exports = function(){
     passport.use(
-        new LocalStrategy({ usernameField: 'username' , passwordField: 'password'}, function(username, password, done){
+        new LocalStrategy({ usernameField: 'email' , passwordField: 'password'}, function(username, password, done){
             //Match User
-            User.findOne({idNumber: username})
+            User.findOne({email: username})
                 .then(user => {
                     if(!user){
-                        return done(null,false, {message: 'کد ملی یافت نشد!'});
+                        return done(null,false, {message: 'نام کاربری یافت نشد!'});
                     }
                     // Match password
                     bcrypt.compare(password, user.password, function(err, isMatch){

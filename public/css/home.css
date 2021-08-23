@@ -15,6 +15,8 @@
     --hover: #FF8A47;
     --orange: #FF8A47;
     --button: #3FAEE0;
+    --blue: #3FAEE0;
+    --darkblue: #2781aa;
     --gray: rgb(156, 156, 156);
 }
 body{
@@ -26,15 +28,20 @@ body{
     direction: rtl;
     background-color: var(--light-background);
 }
+body::-webkit-scrollbar {width: 0.5vw;}
+body::-webkit-scrollbar-track {background: var(--gray);}
+body::-webkit-scrollbar-thumb {background: var(--dark);}
+body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
+
 .black-modal{
-    /* display: none; */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
-    z-index: 10;
+    z-index: 105;
 }
 .transparent-modal{
     display: none;
@@ -43,17 +50,7 @@ body{
     right: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
-}
-.black-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    z-index: 10;
+    z-index: 105;
 }
 .hidden {
     display: none;
@@ -196,6 +193,7 @@ body{
         margin: 0 5%;
     }
     section .mockup .column h1{
+        color: black;
         font-family: 'iransans';
         margin: 0;
         font-size: 3vw;
@@ -315,5 +313,88 @@ body{
         box-shadow: 0 0 0.8vw 0.3vw rgba(0, 0, 0, 0.2);
 
     }
+    section .pricing{
+        overflow: hidden;
+        margin-top: 6vw;
+    }
+    section .pricing .column.blue-col{
+        background-color: #EAF6FD;
+        border-top: #A5D9F2 1vw solid;
+        min-height: 85vw;
+    }
+    section .pricing .column.red-col{
+        background-color: #fff0f0;
+        border-top: #FBD1BA 1vw solid;
+        min-height: 85vw;
+    }
+    section .pricing .column h1.title{
+        font-family: 'iransans';
+        font-size: 5vw;
+        padding: 0 5vw;
+        margin-top: 7vw;
+        color: black;
+        font-weight: bolder;
+        margin-bottom: 1vw;
+    }
+    section .pricing .column .price{
+        padding: 0 5vw;
+        font-size: 3vw;
+        font-weight: bolder;
+        font-family: 'btitr';
+    }
+    section .pricing .column.red-col .price{color: #FF8A47;}
+    section .pricing .column.blue-col .price{color: #29A5DC;}
+    section .pricing .column .item{
+        padding: 0 5vw;
+        margin: 4vw 0;
+    }
+    section .pricing .column.red-col .item h1{
+        font-size: 1.5vw;
+        color: #FF8A47;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+    section .pricing .column.blue-col .item h1{
+        font-size: 1.5vw;
+        color: #29A5DC;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+    section .pricing .column .item p{
+        font-size: 1.3vw;
+        color: var(--text);
+        text-align: justify;
+        width: 80%;
+        margin-top: 0;
+    }
+    .bottom-image{
+        position: relative;
+        background-color: var(--dark);
+    }
+    .bottom-image img{
+        width: 100%;
+    }
+    .bottom-image .dark-overlay{
+        background-color: rgba(0, 0, 0, 0.493);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 98.5%;
+    }
+    .bottom-image .info{
+        position: absolute;
+        top: 15vw;
+        right: 5vw;
+    }
+    .bottom-image .info h1{
+        font-size: 5vw;
+        margin: 0;
+        line-height: 6vw;
+    }
+    .bottom-image .info p{
+        font-size: 2vw;
+    }
+
 }
 

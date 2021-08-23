@@ -15,33 +15,68 @@ html
         .black-modal
         .dashboard
             .side-bar 
-                .avatar
-                    img(src="/img/avatar/1.png", alt="avatar")
-                .name= user.fullname
-                .nav-links 
-                    a.sidebar-nav-link(href="/dashboard") 
-                        i.fa.fa-user 
-                        | داشبورد
-                    .break 
-                    a.sidebar-nav-link(href="#") 
-                        i.fa.fa-book
-                        | دوره های من
-                    .break 
-                    a.sidebar-nav-link(href="#") 
-                        i.fa.fa-credit-card
-                        | صورت حساب ها
-                    .break 
-                    a.sidebar-nav-link(href="#") 
-                        i.fa.fa-bell
-                        | اعلان ها
-                    .break 
-                    a.sidebar-nav-link(href="#") 
-                        i.fa.fa-gears
-                        | تنظیمات
-                
-                a.logout(href="/users/logout") 
-                    i.fa.fa-power-off
-                    | خروج
-
+                a.settings(href="#") 
+                    i.fa.fa-gear 
+                a.logo(href="/") 
+                    img(src="/img/logo.png")
+                .user-info
+                    img.avatar(src="/img/avatar/10.png")
+                    h1.name= user.fullname
+                    .statistics 3 کارت مطالعه شده - 1 دسته ساخته شده
+                .scroll-view 
+                    .list 
+                        h1.title کلاس های من (3)
+                        i.fa.fa-search.search
+                        i.fa.fa-plus.plus
+                        .list-content.active
+                            .active-bar
+                            i.fa.fa-book.icon
+                            .info 
+                                h1 عنوان کلاس
+                                .progress-bar
+                                    .passed(style="width: 20%")
+                        .list-content
+                            .active-bar
+                            i.fa.fa-graduation-cap.icon
+                            .info 
+                                h1 عنوان کلاس
+                                .progress-bar
+                                    .passed(style="width: 80%")
+                        .list-content
+                            .active-bar
+                            i.fa.fa-database.icon
+                            .info 
+                                h1 عنوان کلاس
+                                .progress-bar
+                                    .passed(style="width: 40%")
+                        a.link(href="#") 
+                            i.fa.fa-plus 
+                            .text ساخت کلاس جدید
+                        a.link(href="#") 
+                            i.fa.fa-search
+                            .text یافتن فلشکارت
+                    .list 
+                        h1.title کلاس های محبوب
+                        //- i.fa.fa-search.search
+                        //- i.fa.fa-plus.plus
+                        .list-content
+                            .active-bar
+                            i.fa.fa-book.icon.green
+                            .info 
+                                h1.single عنوان کلاس
+                        .list-content
+                            .active-bar
+                            i.fa.fa-book.icon.blue
+                            .info 
+                                h1.single عنوان کلاس
+                        .list-content
+                            .active-bar
+                            i.fa.fa-book.icon.green
+                            .info 
+                                h1.single عنوان کلاس
+                        a.link(href="#") 
+                            i.fa.fa-eye
+                            .text مشاهده همه
+                a.upgrade(href="#")  ارتقاء به پنل حرفه‌ای
             .content-area
                 block content

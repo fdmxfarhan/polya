@@ -2,8 +2,14 @@ nav
     .logoarea 
         img(src="/img/logo.png", alt="logo")
         //- h1 polya
-    a.nav-link.orange(href="#") شروع کنید
-    a.nav-link.normal(href="#") ورود
+    -if(user){
+        a.nav-link.orange پنل حرفه‌ای
+        a.nav-link.normal.small(href="/dashboard") 
+            i.fa.fa-user.user-icon
+    -}else{
+        a.nav-link.orange#register-btn2 شروع کنید
+        a.nav-link.normal#login-btn ورود
+    -}
     a.nav-link.normal(href="#") آکادمی
     a.nav-link.normal(href="#") مربیان
     a.nav-link.normal(href="#") ساخت فلش کارت

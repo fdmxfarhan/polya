@@ -23,6 +23,7 @@
         color: var(--text);
         text-decoration: none;
         padding: 1.5vw 2vw;
+        cursor: pointer;
     }
     nav a.nav-link.orange{
         background-color: var(--orange);
@@ -31,6 +32,14 @@
     nav a.nav-link.orange:hover{
         font-size: 1.3vw;
         padding: 1.45vw 1.8vw;
+    }
+    nav a.nav-link.normal i.user-icon{
+        font-size: 2vw;
+    }
+    nav a.nav-link.normal i.user-icon:hover{color: var(--blue);}
+    nav a.nav-link.normal.small{
+        padding: 1.15vw 2vw;
+
     }
     nav a.nav-link.normal{
         border-top: transparent 0.3vw solid;

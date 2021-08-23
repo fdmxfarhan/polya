@@ -10,6 +10,8 @@ html
         meta(name="theme-color" content="#050507")
         link(rel='stylesheet', href='/css/home.css')
         link(rel='stylesheet', href='/css/components/nav.css')
+        link(rel='stylesheet', href='/css/components/footer.css')
+        link(rel='stylesheet', href='/css/components/login.css')
         
     body
         .transparent-modal
@@ -97,5 +99,57 @@ html
                         .card
                             img(src="/img/home/sample2.png", alt="")
                             h1 نمونه
-                    
-                    
+        section.light 
+            .pricing
+                .column.col50.blue-col
+                    h1.title امکانات رایگان
+                    .price 0 تومان/ماه
+                    .item
+                        h1 یافتن فلشکارت‌ها
+                        p دسترسی به هزاران کلاس طراحی شده توسط معلمان، توسعه گران و دانش‌آموزان.
+                    .item
+                        h1 ساخت فلشکارت‌ها
+                        p استفاده از ابزارات ساده طراحی فلشکارت هم در نسخه وب و هم در اپلیکیشن.
+                    .item
+                        h1 یادگیری با تکرار و تمرین
+                        p با استفاده از امکانات پولیا دوبرابر سریعتر یاد بگیرید.
+                    .item
+                        h1 مشاهده میزان پیشرفت
+                        p میزان یادگیری خود را مشاهده کنید و اعتماد به نفس خود را افزایش دهید.
+                    .item
+                        h1 همزمان در چند دستگاه
+                        p تمام فلشکارت‌ها و متریک ها در وب سایت و اپلیکیشن همزمان قابل دسترسی هستند.
+                .column.col50.red-col
+                    h1.title امکانات حرفه‌ای
+                    .price 100 هزار تومان/ماه
+                    .item
+                        h1 کارت های نامحدود
+                        p بدون محدودیت روزانه استفاده از فلشکارت ها
+                    .item
+                        h1 آپلود عکس و صدا
+                        p عکس ها و صداها به یادگیری بهتر کمک می‌کنند.
+                    .item
+                        h1 کپی کردن فلشکارت‌ها
+                        p کلاس های خود را با استفاده از فلشکارت‌های موجود بسازید.
+                    .item
+                        h1 نشانه گذاری فلشکارت‌ها
+                        p کارت های مهم را نشانه گذاری کنید تا بعدا با معلم یا دوست خود مطالعه کنید.
+                    .item
+                        h1 کلاس خصوصی تعریف کنید
+                        p دسترسی کلاس‌ها را خودتان تایین کنید.
+                    .item
+                        h1 مشاهده وضعیت دانش آموزان
+                        p مشاهده میزان مطالعه دانش آموزان و رتبه دهی با کارت یا درصد.                  
+        section.dark 
+            .bottom-image
+                img(src="/img/home/checkpoint.jpg")
+                .dark-overlay 
+                .info
+                    h1 فکر کن.
+                    h1 یاد بگیر.
+                    h1 موفق شو.
+                    p با پولیا یک ماجراجویی در یادگیری تجربه کنید.
+        
+        include components/login
+        include components/footer
+        script(src="/js/login.js") 
