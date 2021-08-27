@@ -1,110 +1,45 @@
 extends layout
 
 block styles
-    link(rel="stylesheet", href="/css/css-circular-prog-bar.css")
-    link(rel="stylesheet", href="/css/dashboard/dashboard.css")
+    link(rel="stylesheet", href="/css/dashboard/admin-dashboard.css")
 
 block content
-    .message-area
-        -if(login){
-            .success-msg
-                i.fa.fa-times.close-success-msg
-                ul 
-                    li به پنل کاربری خود خوش آمدید
-        -}
-        -if(false){
-            .notif-msg
-                i.fa.fa-times.close-notif-msg
-                ul 
-                    li شما n صورت حساب پرداخت نشده دارید. جهت پرداخت صورت حساب خود 
-                        a(href="#") اینجا 
-                        | را کلیک کنید.
-        -}
-
-    .graph-cards-area
-        .card 
-            .title تعداد دوره ها
-            //- .number 100
-            .progress-circle.over50.p85
-                span 100
-                .left-half-clipper
-                    .first50-bar
-                    .value-bar
-        .card 
-            .title تعداد شرکت کنندگان
-            //- .number 200
-            .progress-circle.over50.p85
-                span 200
-                .left-half-clipper
-                    .first50-bar
-                    .value-bar
-        .card 
-            .title تعداد دوره ها
-            //- .number 100
-            .progress-circle.over50.p85
-                span 100
-                .left-half-clipper
-                    .first50-bar
-                    .value-bar
+    .cards-view 
+        a.card.blue(href="/dashboard/users")
+            i.fa.fa-user 
+            h1.number 1234
+            .progress-bar
+                .passed(style="width: 30%")
+            h1.title کاربران
+        a.card.orange(href="#")
+            i.fa.fa-dollar
+            h1.number 1234 تومان
+            .progress-bar
+                .passed(style="width: 50%")
+            h1.title درآمد
+        a.card.green(href="#")
+            i.fa.fa-credit-card
+            h1.number 1235
+            .progress-bar
+                .passed(style="width: 10%")
+            h1.title فلشکارت‌ها
+        a.card.red(href="#")
+            i.fa.fa-graduation-cap
+            h1.number 1234
+            .progress-bar
+                .passed(style="width: 90%")
+            h1.title کلاس‌ها
+    
+    .charts-view 
+        .chart1 
+            #chart1
+        .chart2
+            #chart2
+            a(href="#") 
+                i.fa.fa-address-card
+                | مشاهده کارت‌ها
         
-    //- h1.title دوره های من
-    //- .product-cards-area
-    //-     .not-found شما هیچ دوره ای ثبت نام نکرده اید. برای ثبت نام 
-    //-         a(href="#") اینجا 
-    //-         | کلیک کنید.
-    h1.title لیست دوره ها
-    .product-cards-area 
-        .card 
-            .image 
-                img(src="/img/classes/img-01.jpg")
-            .title دوره آموزشی 1
-            .text 
-                | در این قسمت توضیحات مورد نیاز در مورد دوره آموزشی نوشته می شود. با کلیک بر روی دکمه ثبت نام این دوره به لیست دوره ها اضافه شده و پس از پرداخت هزینه فعال می شود.
-            .price 100.000 تومان
-        .card 
-            .image 
-                img(src="/img/classes/img-02.png")
-            .title دوره آموزشی 1
-            .text 
-                | در این قسمت توضیحات مورد نیاز در مورد دوره آموزشی نوشته می شود. با کلیک بر روی دکمه ثبت نام این دوره به لیست دوره ها اضافه شده و پس از پرداخت هزینه فعال می شود.
-            .price 100.000 تومان
-        .card 
-            .image 
-                img(src="/img/classes/img-01.jpg")
-            .title دوره آموزشی 1
-            .text 
-                | در این قسمت توضیحات مورد نیاز در مورد دوره آموزشی نوشته می شود. با کلیک بر روی دکمه ثبت نام این دوره به لیست دوره ها اضافه شده و پس از پرداخت هزینه فعال می شود.
-            .price 100.000 تومان
-        .card 
-            .image 
-                img(src="/img/classes/img-02.png")
-            .title دوره آموزشی 1
-            .text 
-                | در این قسمت توضیحات مورد نیاز در مورد دوره آموزشی نوشته می شود. با کلیک بر روی دکمه ثبت نام این دوره به لیست دوره ها اضافه شده و پس از پرداخت هزینه فعال می شود.
-            .price 100.000 تومان
-        .card.add
-            i.fa.fa-plus.plus
-            .add-text افزودن دوره
-
-    .popup-area
-        .popup
-            i.fa.fa-times.close-popup
-            h1.popup-title افزودن دوره جدید
-            .two-side-cont
-                .part 
-                    form(action="/dashboard/") 
-                        .text-input 
-                            i.fa.fa-pencil 
-                            input(type="text" name="title" placeholder="عنوان دوره")
-                        .text-input 
-                            i.fa.fa-pencil 
-                            input(type="text" name="title" placeholder="عنوان دوره")
-                        
-                .break-side 
-                .part 
-
-
-
-    script(src="/js/dashboard.js") 
+    
+    script(src="/js/admin-dashboard.js") 
 
 

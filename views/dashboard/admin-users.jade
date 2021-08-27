@@ -1,0 +1,85 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/css/dashboard/users-view.css")
+
+block content
+    .title-view 
+        h1 کاربران
+        h2 201 user, 5 admin
+    .content-view 
+        .users-view 
+            table 
+                tr 
+                    th کاربر
+                    th نقش
+                    th حساب ها
+                    th 
+                    th 
+                -for(var i=0; i<users.length; i++){
+                    tr 
+                        td.user 
+                            h1= users[i].fullname
+                            h2= users[i].phone
+                        td.role 
+                            -if(users[i].role == 'user')
+                                .role-user user 
+                            -if(users[i].role == 'admin')
+                                .role-admin admin 
+                            
+                        td.acounts 
+                            h1 5 کلاس
+                            h2 3 دسته کارت در حال مطالعه
+                        td
+                            a.edit(href="") 
+                                i.fa.fa-edit 
+                        td
+                            a.trash(href="/dashboard/delete-user?userID=#{users[i]._id}") 
+                                i.fa.fa-trash 
+                -}
+        .user-control 
+            .control 
+                .search-view
+                    input(type="text" placeholder="جستجو")
+                    button
+                        i.fa.fa-search
+                a.add-user#add-user-btn
+                    i.fa.fa-plus 
+                    | افزودن کاربر
+            //- .statistics
+            //-     h1.title مشاهده سریع حساب ها
+            //-     .acount 
+            //-         .info
+            //-             h1 حساب آب‌وندی
+            //-             h2 از 1/2/3 تا 4/5/6
+            //-         .cap 1000 
+            //-             span &#13221;
+            //-     .acount 
+            //-         .info
+            //-             h1 حساب چاه‌وندی
+            //-             h2 از 1/2/3 تا 4/5/6
+            //-         .cap 1500 
+            //-             span &#13221;
+            //-     .acount 
+            //-         .info
+            //-             h1 حساب آب‌وندی
+            //-             h2 از 1/2/3 تا 4/5/6
+            //-         .cap 500 
+            //-             span &#13221;
+            //-     .acount 
+            //-         .info
+            //-             h1 حساب چاه
+            //-             h2 از 1/2/3 تا 4/5/6
+            //-         .cap 1000 
+            //-             span &#13221;
+            //-     .acount 
+            //-         .info
+            //-             h1 حساب آب‌وندی
+            //-             h2 از 1/2/3 تا 4/5/6
+            //-         .cap 2000 
+            //-             span &#13221;
+
+    include ../components/register-popup
+    script(src="/js/users-view.js") 
+
+

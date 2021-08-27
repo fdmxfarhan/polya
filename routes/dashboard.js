@@ -23,4 +23,22 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
     }
 });
 
+router.get('/settings', ensureAuthenticated, (req, res, next) => {
+    res.render('./dashboard/user-settings', {
+        user: req.user,
+    })
+});
+
+router.get('/users', ensureAuthenticated, (req, res, next) => {
+    if(req.user.role == 'admin'){
+        User.find({}, (err, users) => {
+            res.render('./dashboard/admin-users', {
+                user: req.user,
+                users,
+            });
+        })
+    }
+    else res.send('Access Denied');
+});
+
 module.exports = router;

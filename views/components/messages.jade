@@ -1,0 +1,19 @@
+.errors-area
+    -if(errors){
+            -for(var i=0; i<errors.length; i++){
+                .error(id='error#{i}')
+                    i.fa.fa-warning
+                    h1= errors[i].msg
+                    i.fa.fa-times.close-error
+                    .time-interval(id='time#{i}')
+            -}
+    -}
+    -if(success_msg){
+        -if(success_msg != ''){
+            .error.green-error(id='error3')
+                i.fa.fa-check
+                h1= success_msg
+                i.fa.fa-times.close-error
+                .time-interval(id='time3')
+        -}
+    -}

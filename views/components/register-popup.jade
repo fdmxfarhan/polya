@@ -1,0 +1,58 @@
+.popup#add-user-popup
+    i.fa.fa-times.close-popup
+    h1.popup-title افزودن کاربر جدید
+    form(action="/dashboard/admin-register" id="register" method="POST")
+        .two-side-form
+            .part
+                .text-input-area
+                    input.textinput(type="text" placeholder="نام" name="firstName" value= "#{ typeof firstName != 'undefined' ? firstName: '' }")
+                    i.fa.fa-pencil
+                .text-input-area
+                    input.textinput(type="text" placeholder="نام خانوادگی" name="lastName" value= "#{ typeof lastName != 'undefined' ? lastName: '' }")
+                    i.fa.fa-pencil
+                .text-input-area
+                    input.textinput(type="text" placeholder="کد ملی" name="idNumber" value= "#{ typeof idNumber != 'undefined' ? idNumber: '' }" required)
+                    i.fa.fa-user
+                .text-input-area
+                    input.textinput(type="text" placeholder="شماره شناسنامه" name="cardNumber" value= "#{ typeof cardNumber != 'undefined' ? cardNumber: '' }")
+                    i.fa.fa-credit-card
+                .date-input-area
+                    label(for="day") تاریخ تولد: 
+                    input(type="Number" name="birthDay" placeholder="روز" )
+                    label(for="month") / 
+                    input(type="Number" name="birthMonth" placeholder="ماه" )
+                    label(for="year") / 
+                    input(type="Number" name="birthYear" placeholder="سال" value="1380" )     
+                .select-input-area
+                    label(for="sex") جنسیت: 
+                    select(name="sex") 
+                        option(value="خانم") خانم
+                        option(value="آقای") آقا
+            .part
+                .text-input-area
+                    input.textinput(type="text" placeholder="نام پدر" name="fatherName" value= "#{ typeof fatherName != 'undefined' ? fatherName: '' }")
+                    i.fa.fa-user
+                
+                .text-input-area
+                    input.textinput(type="text" placeholder="نشانی" name="address" value= "#{ typeof address != 'undefined' ? address: '' }")
+                    i.fa.fa-map-marker
+                .text-input-area
+                    input.textinput(type="text" placeholder="کد پستی" name="postCode" value= "#{ typeof postCode != 'undefined' ? postCode: '' }")
+                    i.fa.fa-inbox
+                .text-input-area
+                    input.textinput(type="text" placeholder="شماره تماس" name="phone" value= "#{ typeof phone != 'undefined' ? phone: '' }")
+                    i.fa.fa-phone
+                .text-input-area
+                    input.textinput(type="password" placeholder="رمز عبور" name="password" value= "#{ typeof psw != 'undefined' ? psw: '' }" required)
+                    i.fa.fa-key
+                .text-input-area
+                    input.textinput(type="password" placeholder="تایید رمز عبور" name="configpassword" value= "#{ typeof configpsw != 'undefined' ? configpsw: '' }" required)
+                    i.fa.fa-check
+                .text-input-area
+                    button.submit(type="submit") ثبت نام
+-if(errors){
+    script.
+        $('#add-user-popup').show();
+        $('.black-modal').show();
+-}
+

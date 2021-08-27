@@ -6,6 +6,7 @@ html
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
         link(rel="shortcut icon", href="/img/logo.png", type="image/x-icon")
         script(src="/js/jquery-3.5.1.min.js")
+        script(src="https://www.gstatic.com/charts/loader.js")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         //- meta(name="theme-color" content="#050507")
         //- script(src="/js/index.js")
@@ -13,10 +14,14 @@ html
         block styles
     body
         .black-modal
+        .transparent-modal
+        
+        include ../components/add-class
+        include ../components/setting
         .dashboard
             .side-bar 
                 a.settings(href="#") 
-                    i.fa.fa-gear 
+                    i.fa.fa-gear#setting-btn 
                 a.logo(href="/") 
                     img(src="/img/logo.png")
                 .user-info
@@ -24,59 +29,109 @@ html
                     h1.name= user.fullname
                     .statistics 3 کارت مطالعه شده - 1 دسته ساخته شده
                 .scroll-view 
-                    .list 
-                        h1.title کلاس های من (3)
-                        i.fa.fa-search.search
-                        i.fa.fa-plus.plus
-                        .list-content.active
-                            .active-bar
-                            i.fa.fa-book.icon
-                            .info 
-                                h1 عنوان کلاس
-                                .progress-bar
-                                    .passed(style="width: 20%")
-                        .list-content
-                            .active-bar
-                            i.fa.fa-graduation-cap.icon
-                            .info 
-                                h1 عنوان کلاس
-                                .progress-bar
-                                    .passed(style="width: 80%")
-                        .list-content
-                            .active-bar
-                            i.fa.fa-database.icon
-                            .info 
-                                h1 عنوان کلاس
-                                .progress-bar
-                                    .passed(style="width: 40%")
-                        a.link(href="#") 
-                            i.fa.fa-plus 
-                            .text ساخت کلاس جدید
-                        a.link(href="#") 
-                            i.fa.fa-search
-                            .text یافتن فلشکارت
-                    .list 
-                        h1.title کلاس های محبوب
-                        //- i.fa.fa-search.search
-                        //- i.fa.fa-plus.plus
-                        .list-content
-                            .active-bar
-                            i.fa.fa-book.icon.green
-                            .info 
-                                h1.single عنوان کلاس
-                        .list-content
-                            .active-bar
-                            i.fa.fa-book.icon.blue
-                            .info 
-                                h1.single عنوان کلاس
-                        .list-content
-                            .active-bar
-                            i.fa.fa-book.icon.green
-                            .info 
-                                h1.single عنوان کلاس
-                        a.link(href="#") 
-                            i.fa.fa-eye
-                            .text مشاهده همه
-                a.upgrade(href="#")  ارتقاء به پنل حرفه‌ای
+                    -if(user.role == 'user'){
+                        .list 
+                            h1.title کلاس های من (3)
+                            i.fa.fa-search.search
+                            i.fa.fa-plus.plus#add-class-btn
+                            .list-content.active
+                                .active-bar
+                                i.fa.fa-book.icon
+                                .info 
+                                    h1 عنوان کلاس
+                                    .progress-bar
+                                        .passed(style="width: 20%")
+                            .list-content
+                                .active-bar
+                                i.fa.fa-graduation-cap.icon
+                                .info 
+                                    h1 عنوان کلاس
+                                    .progress-bar
+                                        .passed(style="width: 80%")
+                            .list-content
+                                .active-bar
+                                i.fa.fa-database.icon
+                                .info 
+                                    h1 عنوان کلاس
+                                    .progress-bar
+                                        .passed(style="width: 40%")
+                            a.link#add-class-btn2
+                                i.fa.fa-plus 
+                                .text ساخت کلاس جدید
+                            a.link(href="#") 
+                                i.fa.fa-search
+                                .text یافتن فلشکارت
+                        .list 
+                            h1.title کلاس های محبوب
+                            .list-content
+                                .active-bar
+                                i.fa.fa-book.icon.green
+                                .info 
+                                    h1.single عنوان کلاس
+                            .list-content
+                                .active-bar
+                                i.fa.fa-book.icon.blue
+                                .info 
+                                    h1.single عنوان کلاس
+                            .list-content
+                                .active-bar
+                                i.fa.fa-book.icon.green
+                                .info 
+                                    h1.single عنوان کلاس
+                            a.link(href="#") 
+                                i.fa.fa-eye
+                                .text مشاهده همه
+                    -}else if(user.role == 'admin'){
+                        .list 
+                            h1.title همه کلاس ها (3)
+                            i.fa.fa-search.search
+                            i.fa.fa-plus.plus#add-class-btn
+                            .list-content.active
+                                .active-bar
+                                i.fa.fa-book.icon
+                                i.fa.fa-trash.delete
+                                .info 
+                                    h1 عنوان کلاس
+                                    .progress-bar
+                                        .passed(style="width: 20%")
+                            .list-content
+                                .active-bar
+                                i.fa.fa-graduation-cap.icon
+                                .info 
+                                    h1 عنوان کلاس
+                                    .progress-bar
+                                        .passed(style="width: 80%")
+                            .list-content
+                                .active-bar
+                                i.fa.fa-database.icon
+                                .info 
+                                    h1 عنوان کلاس
+                                    .progress-bar
+                                        .passed(style="width: 40%")
+                            a.link#add-class-btn2
+                                i.fa.fa-plus 
+                                .text ساخت کلاس جدید
+                            a.link(href="#") 
+                                i.fa.fa-search
+                                .text یافتن فلشکارت
+                    -}
+                -if(user.role == 'user')
+                    a.upgrade(href="#")  ارتقاء به پنل حرفه‌ای
             .content-area
+                .message-area
+                    -if(login){
+                        .success-msg
+                            i.fa.fa-times.close-success-msg
+                            ul 
+                                li به پنل کاربری خود خوش آمدید
+                    -}
+                    -if(false){
+                        .notif-msg
+                            i.fa.fa-times.close-notif-msg
+                            ul 
+                                li شما n صورت حساب پرداخت نشده دارید. جهت پرداخت صورت حساب خود 
+                                    a(href="#") اینجا 
+                                    | را کلیک کنید.
+                    -}
                 block content
+        script(src="/js/dashboard-layout.js") 

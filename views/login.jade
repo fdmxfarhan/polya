@@ -1,0 +1,56 @@
+extends layout
+block styles
+    link(rel="stylesheet", href="/css/users.css")
+
+block content
+    //- include partials/messages
+    -if(errors || success_msg || error_msg || error){
+        .errors-area
+            -if(errors){
+                -for(var i=0; i<errors.length; i++){
+                    .error(id='error#{i}')
+                        i.fa.fa-warning
+                        h1= errors[i].msg
+                        i.fa.fa-times.close-error
+                        .time-interval(id='time#{i}')
+                -}
+            -}
+            -if(success_msg != ''){
+                .error.green-error(id='error3')
+                    i.fa.fa-check
+                    h1= success_msg
+                    i.fa.fa-times.close-error
+                    .time-interval(id='time3')
+            -}
+            -if(error_msg != ''){
+                .error(id='error4')
+                    i.fa.fa-warning
+                    h1= error_msg
+                    i.fa.fa-times.close-error
+                    .time-interval(id='time4')
+            -}
+            -if(error != ''){
+                .error(id='error5')
+                    i.fa.fa-warning
+                    h1= error
+                    i.fa.fa-times.close-error
+                    .time-interval(id='time5')
+            -}
+            
+    -}
+    
+    .register
+        h1.title 
+            i.fa.fa-sign-in
+            | ورود
+        form(action="/users/login" id="register" method="POST")
+            .text-input-area
+                input.textinput(type="text" placeholder="کد ملی" name="email" value= "#{ typeof email != 'undefined' ? email: '' }")
+                i.fa.fa-user
+            .text-input-area
+                input.textinput(type="password" placeholder="رمز عبور" name="password" value= "#{ typeof password != 'undefined' ? password: '' }")
+                i.fa.fa-key
+            .text-input-area
+                button.submit(type="submit") ورود
+            a.link(href="/users/register") هنوز ثبت نام نکرده اید؟
+    script(src="/js/users.js")

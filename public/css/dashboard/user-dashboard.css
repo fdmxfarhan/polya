@@ -169,7 +169,7 @@
     .decks-view .deck a.unlock:hover{
         background-color: var(--blue);
     }
-    
+
 }
 @media only screen and (max-width: 800px) {
     

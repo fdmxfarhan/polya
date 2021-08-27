@@ -1,0 +1,241 @@
+@media only screen and (min-width: 800px) {
+    .title-view {
+        background-color: white;
+        overflow: hidden;
+        width: 90%;
+        margin: 2vw auto;
+        box-shadow: 0 0 0.3vw 0.1vw rgba(0, 0, 0, 0.1);
+        border-radius: 0.3vw;
+    }
+    .title-view h1{
+        margin: 0;
+        padding: 1vw 2vw;
+        float: right;
+        font-family: 'iransans';
+        font-size: 1.4vw;
+        color: var(--text);
+    }
+    .title-view h2{
+        margin: 0;
+        padding: 1.5vw 2vw;
+        float: left;
+        font-family: 'iransans';
+        font-size: 1vw;
+        color: var(--lightgray);
+        direction: ltr;
+    }
+    .content-view {
+        overflow: hidden;
+        width: 90%;
+        margin: auto;
+        padding: 0 2%;
+    }
+    .content-view .users-view {
+        float: right;
+        width: 70%;
+        margin-left: 2%;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        background-color: white;
+        box-shadow: 0 0 0.3vw 0.1vw rgba(0, 0, 0, 0.1);
+        border-radius: 0.3vw;
+    }
+    .content-view .user-control {
+        float: right;
+        width: 28%;
+    }
+    .content-view .users-view table{
+        width: 90%;
+        margin: 1vw auto;
+        text-align: right;
+    }
+    .content-view .users-view table tr:hover td{background-color: rgb(241, 241, 241);}
+    .content-view .users-view table th{
+        color: var(--lightgray);
+        font-size: 1vw;
+    }
+    .content-view .users-view table td{
+        overflow: hidden;
+        border-top: rgb(233, 233, 233) 0.2vw solid;
+        margin: 0;
+        padding: 0;
+    }
+    .content-view .users-view table td.user h1{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        color: var(--text);
+        padding: 0 0.5vw;
+    }
+    .content-view .users-view table td.user h2{
+        font-family: 'iransans';
+        font-size: 0.9vw;
+        color: var(--lightgray);
+        margin: 0;
+        padding: 0 0.5vw;
+    }
+    .content-view .users-view table td.role .role-user{
+        background-color: var(--green);
+        color: white;
+        font-size: 0.9vw;
+        padding: 0.2vw 0.7vw;
+        border-radius: 0.5vw;
+        width: fit-content;
+    }
+    .content-view .users-view table td.role .role-admin{
+        background-color: var(--orange);
+        color: white;
+        font-size: 0.9vw;
+        padding: 0.2vw 0.7vw;
+        border-radius: 0.5vw;
+        width: fit-content;
+    }
+    .content-view .users-view table td.acounts h1{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        color: var(--text);
+        padding: 0 0.5vw;
+    }
+    .content-view .users-view table td.acounts h2{
+        font-family: 'iransans';
+        font-size: 0.9vw;
+        color: var(--lightgray);
+        margin: 0;
+        padding: 0 0.5vw;
+    }
+    .content-view .users-view table td a.edit{
+        padding: 0 0.5vw;
+        font-size: 1.5vw;
+        color: var(--green);
+    }
+    .content-view .users-view table td a.edit:hover{
+        color: var(--blue);
+    }
+    .content-view .users-view table td a.trash{
+        padding: 0 0.5vw;
+        font-size: 1.5vw;
+        color: var(--orange);
+    }
+    .content-view .users-view table td a.trash:hover{
+        color: var(--blue);
+    }
+
+    .content-view .user-control .control {
+        background-color: white;
+        box-shadow: 0 0 0.3vw 0.1vw rgba(0, 0, 0, 0.1);
+        border-radius: 0.3vw;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        padding-bottom: 1vw;
+    }
+    .content-view .user-control .control .search-view{
+        overflow: hidden;
+        padding: 1vw 1vw;
+    }
+    .content-view .user-control .control .search-view input{
+        border: var(--lightgray) 0.1vw solid;
+        font-size: 1vw;
+        font-family: 'iransans';
+        float: right;
+        width: 65%;
+        padding: 0.3vw 1vw;
+    }
+    .content-view .user-control .control .search-view input:focus{
+        outline: none;
+        border: var(--blue) 0.1vw solid;
+    }
+    .content-view .user-control .control .search-view button{
+        color: white;
+        border: none;
+        font-size: 1.3vw;
+        background-color: var(--blue);
+        float: right;
+        width: 20%;
+        text-align: center;
+        padding: 0.47vw 0;
+        cursor: pointer;
+    }
+    .content-view .user-control .control .search-view button:hover{
+        background-color: var(--orange);
+    }
+    .content-view .user-control .control a.add-user{
+        display: block;
+        background-color: var(--blue);
+        color: white;
+        text-align: center;
+        width: 89%;
+        margin: 1vw auto;
+        text-decoration: none;
+        padding: 0.5vw 0;
+        font-family: 'iransans';
+        font-size: 1vw;
+        cursor: pointer;
+    }
+    .content-view .user-control .control a.add-user:hover{
+        background-color: var(--orange);
+    }
+    .content-view .user-control .control a.add-user i{
+        padding: 0 0.5vw;
+    }
+    .content-view .user-control .statistics {
+        background-color: white;
+        box-shadow: 0 0 0.3vw 0.1vw rgba(0, 0, 0, 0.1);
+        border-radius: 0.3vw;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        padding-bottom: 1vw;
+    }
+    .content-view .user-control .statistics h1.title{
+        color: var(--gray);
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        padding: 1vw 2vw;
+        border-bottom: var(--lightgray) 0.1vw solid;
+
+    }
+    .content-view .user-control .statistics .acount {
+        overflow: hidden;
+        border-bottom: var(--lightergray) 0.1vw solid;
+        margin-top: 1vw;
+    }
+    .content-view .user-control .statistics .acount .info{
+        float: right;
+        width: 60%;
+        margin-right: 1vw;
+    }
+    .content-view .user-control .statistics .acount .info h1{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        color: var(--blue);
+    }
+    .content-view .user-control .statistics .acount .info h2{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 0.9vw;
+        color: var(--lightgray);
+    }
+    .content-view .user-control .statistics .acount .cap{
+        color: var(--green);
+        direction: ltr;
+        float: right;
+        font-size: 1.3vw;
+        font-weight: bold;
+    }
+    .content-view .user-control .statistics .acount .cap span{
+        /* font-weight: normal; */
+        font-size: 1vw;
+        color: var(--lightgray);
+    }    
+    
+}
+@media only screen and (max-width: 800px) {
+    
+}
+
+
+
+
+
+

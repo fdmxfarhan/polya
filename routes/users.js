@@ -82,11 +82,13 @@ router.post('/login', function(req, res, next){
     if(errors.length > 0 ){
       res.render('login', { errors, email, password});
     }
-    passport.authenticate('local', {
-      successRedirect: '/dashboard?login=true',
-      failureRedirect: '/users/login',
-      failureFlash: true
-    })(req, res, next);
+    else{
+        passport.authenticate('local', {
+        successRedirect: '/dashboard?login=true',
+        failureRedirect: '/users/login',
+        failureFlash: true
+        })(req, res, next);
+    }
 });
   
 // Logout handle

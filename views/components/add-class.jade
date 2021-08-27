@@ -1,0 +1,42 @@
+form(action="/dashboard/add-class" method="POST")
+    .popup.add-class#add-class-popup
+        i.fa.fa-times.close-popup
+        h1.title ساخت کلاس جدید
+        h2 هر کلاس شامل دسته هایی از فلشکارت ها می‌‌باشد.
+        input.text(type="text" name="title" placeholder="مثال: ریاضی، هندسه، ...")
+        p عنوان کلاس جدید خود را در باکس بالا وارد کنید.
+        .submit#choose-icon ادامه
+    
+    .popup.add-class#add-icon-popup
+        i.fa.fa-times.close-popup
+        h1.title انتخاب آیکون کلاس
+        h2 یک آیکون برای کلاس خود از لیست بالا انتخاب نمایید.
+        input.hidden(type="text" id="iconElement")
+        .icons
+            i.fa.fa-home
+            i.fa.fa-tv
+            i.fa.fa-globe
+            i.fa.fa-certificate
+            i.fa.fa-lightbulb-o
+            i.fa.fa-gears
+            i.fa.fa-deviantart
+            i.fa.fa-pinterest
+            i.fa.fa-laptop
+            i.fa.fa-clock-o
+            i.fa.fa-calculator
+            i.fa.fa-soccer-ball-o
+            i.fa.fa-database
+            i.fa.fa-car
+            i.fa.fa-black-tie
+            i.fa.fa-graduation-cap
+            i.fa.fa-book
+            i.fa.fa-flag
+            i.fa.fa-cloud
+            i.fa.fa-yelp
+            i.fa.fa-plug
+            i.fa.fa-paypal
+            i.fa.fa-cart-plus
+            i.fa.fa-skyatlas
+            i.fa.fa-diamond
+        p برای مشاهده آیکون ها اسکرول کنید
+        button.submit(type="submit") ساخت کلاس
