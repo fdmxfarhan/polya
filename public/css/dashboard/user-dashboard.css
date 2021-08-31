@@ -50,6 +50,7 @@
         font-size: 2.5vw;
         text-decoration: none;
         margin-left: 1vw;
+        cursor: pointer;
     }
     .top-info .info .links a.icon:hover{color: var(--blue);}
     .top-info .info .links a.button{

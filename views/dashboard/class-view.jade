@@ -1,0 +1,71 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/css/dashboard/user-dashboard.css")
+
+block content
+    .top-info 
+        i.fa.fa-copy.class-icon
+        .info 
+            h1.title= cls.title
+            .creator سازنده: 
+                a(href="#")= cls.creator
+                .numbers 
+                    .num 3 
+                    | کارت از
+                    .num 20 
+                    | کارت مطالعه شده
+            .links 
+                a.icon(href="#") 
+                    i.fa.fa-gear 
+                a.icon(href="#") 
+                    i.fa.fa-share-alt
+                -if(user.role == 'admin' || user._id.toString() == cls.userID.toString()){
+                    a.icon#add-deck-btn
+                        i.fa.fa-plus
+                -}
+                a.button(href="#") یادگیری 2 دسته
+    .tabs-view 
+        .tab#tab1 درباره
+        .tab.active#tab1 دسته ها (#{cls.decks.length})
+        .tab#tab1 کاربران (193)
+    #tab2 
+        .decks-view
+            -for(var i=0; i<cls.decks.length; i++){
+                a(href="/dashboard/deck-view?classID=#{cls._id}&deckIndex=#{i}") 
+                    .deck 
+                        i.fa.fa-circle-o.circle
+                        -if(cls.decks[i].locked)
+                            i.fa.fa-lock.lock
+                        -else
+                            .percent= cls.decks[i].percent + '%'
+                        .info
+                            h1= cls.decks[i].title
+                            .progress-bar
+                                .passed(style="width: #{cls.decks[i].percent}%")
+                        -if(user.role == 'admin' || user._id.toString() == cls.userID.toString()){
+                            a(href="/dashboard/remove-deck?classID=#{cls._id}&deckIndex=#{i}") 
+                                i.fa.fa-trash.left-icon 
+                        -}
+                        i.fa.fa-chevron-left.left-icon 
+                        i.fa.fa-eye.left-icon 
+                        a(href="#") 
+                            i.fa.fa-play.left-icon 
+                        -if(cls.decks[i].locked)
+                            a.unlock(href="#") باز کردن
+            -}
+            //- a(href="#") 
+            //-     .deck 
+            //-         i.fa.fa-circle-o.circle
+            //-         i.fa.fa-lock.lock
+            //-         .info
+            //-             h1 عنوان دسته
+            //-             .progress-bar
+            //-                 .passed(style="width: 0%")
+            //-         i.fa.fa-chevron-left.left-icon 
+            //-         i.fa.fa-eye.left-icon 
+            //-         a(href="#") 
+            //-             i.fa.fa-play.left-icon 
+            //-         a.unlock(href="#") باز کردن
+    include ../components/add-deck
+    script(src="/js/dashboard.js") 

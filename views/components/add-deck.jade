@@ -1,0 +1,10 @@
+.popup.add-class#add-deck-popup
+    form(action="/dashboard/add-deck" method="POST")
+        input.hidden(type="text" name="classID" value="#{cls._id}")
+        i.fa.fa-times.close-popup
+        h1.title ساخت دسته جدید
+        h2 هر دسته شامل فلشکارت هایی است همانند فصل ها در یک کتاب.
+        input.text(type="text" name="title" placeholder="مثال: اعمال اصلی، محیط و مساحت، ...")
+        p عنوان دسته جدید خود را در باکس بالا وارد کنید.
+        button.submit(type="submit") ساخت دسته
+    

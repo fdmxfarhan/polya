@@ -24,10 +24,11 @@ html
                     i.fa.fa-gear#setting-btn 
                 a.logo(href="/") 
                     img(src="/img/logo.png")
-                .user-info
-                    img.avatar(src="/img/avatar/10.png")
-                    h1.name= user.fullname
-                    .statistics 3 کارت مطالعه شده - 1 دسته ساخته شده
+                a(href="/dashboard") 
+                    .user-info
+                        img.avatar(src="/img/avatar/10.png")
+                        h1.name= user.fullname
+                        .statistics 3 کارت مطالعه شده - 1 دسته ساخته شده
                 .scroll-view 
                     -if(user.role == 'user'){
                         .list 
@@ -86,28 +87,20 @@ html
                             h1.title همه کلاس ها (3)
                             i.fa.fa-search.search
                             i.fa.fa-plus.plus#add-class-btn
-                            .list-content.active
-                                .active-bar
-                                i.fa.fa-book.icon
-                                i.fa.fa-trash.delete
-                                .info 
-                                    h1 عنوان کلاس
-                                    .progress-bar
-                                        .passed(style="width: 20%")
-                            .list-content
-                                .active-bar
-                                i.fa.fa-graduation-cap.icon
-                                .info 
-                                    h1 عنوان کلاس
-                                    .progress-bar
-                                        .passed(style="width: 80%")
-                            .list-content
-                                .active-bar
-                                i.fa.fa-database.icon
-                                .info 
-                                    h1 عنوان کلاس
-                                    .progress-bar
-                                        .passed(style="width: 40%")
+                            -for(var i=0; i<classes.length && i<5; i++){
+                                -var active = '';
+                                -if(cls && cls._id.toString() == classes[i]._id.toString()) active = 'active';
+                                a(href="/dashboard/class-view?classID=#{classes[i]._id}") 
+                                    .list-content(class="#{active}")
+                                        .active-bar
+                                        i.fa.icon(class="#{classes[i].icon}")
+                                        .info 
+                                            h1= classes[i].title
+                                            .progress-bar
+                                                .passed(style="width: 20%")
+                                        a(href="/dashboard/delete-class?classID=#{classes[i]._id}") 
+                                            i.fa.fa-trash.delete
+                            -}
                             a.link#add-class-btn2
                                 i.fa.fa-plus 
                                 .text ساخت کلاس جدید

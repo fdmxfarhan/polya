@@ -210,9 +210,7 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         left: 1.5vw;
         color: var(--gray);
     }
-    .dashboard .side-bar .scroll-view .list .list-content i.delete:hover{
-        color: var(--red);
-    }
+    .dashboard .side-bar .scroll-view .list .list-content i.delete:hover{color: var(--red);}
     .dashboard .side-bar .scroll-view .list .list-content{
         /* background-color: lightblue; */
         overflow: hidden;
@@ -517,6 +515,14 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         margin-top: 0.5vw;
     }
     .popup#add-class-popup{
+        /* display: block; */
+        width: 40%;
+        left: 27%;
+        top: 10vw;
+        border-radius: 2vw;
+        text-align: center;
+    }
+    .popup#add-deck-popup{
         /* display: block; */
         width: 40%;
         left: 27%;
