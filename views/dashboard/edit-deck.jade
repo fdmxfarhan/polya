@@ -1,0 +1,31 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/css/dashboard/edit-deck.css")
+
+block content
+    .edit-deck 
+        h1.title فلشکارت های دسته #{deck.title}
+        form.flashcards(action="/dashboard/save-deck" method="POST") 
+            input.hidden(type="text" name="classID" value="#{cls._id}")
+            table#cards-table 
+                tr
+                    th #
+                    th سوال
+                    th پاسخ
+                    th 
+                tr#card  
+                    td 1
+                    td  
+                        textarea(name="question" placeholder="سوال...")
+                    td  
+                        textarea(name="answer" placeholder="پاسخ...")
+                    td 
+                        i.fa.fa-times.delete.delete-card
+            #add-flashcard 
+                i.fa.fa-plus 
+                | افزودن فلشکارت
+            button.submit(type="submit")
+                i.fa.fa-save 
+                | ذخیره
+    script(src="/js/edit-deck.js") 

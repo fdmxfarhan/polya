@@ -140,7 +140,24 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
     });
 });
 
+router.get('/edit-deck', ensureAuthenticated, (req, res, next) => {
+    var {classID, deckIndex} = req.query;
+    Class.find({}, (err, classes) => {
+        Class.findById(classID, (err, cls) => {
+            var deck = cls.decks[deckIndex];
+            res.render('./dashboard/edit-deck', {
+                user: req.user,
+                cls,
+                deck,
+                classes,
+            });
+        });
+    });
+});
 
+router.post('/save-deck', ensureAuthenticated, (req, res, next) => {
+    console.log(req.body)
+});
 
 
 module.exports = router;

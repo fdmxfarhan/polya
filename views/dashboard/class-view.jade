@@ -46,9 +46,10 @@ block content
                         -if(user.role == 'admin' || user._id.toString() == cls.userID.toString()){
                             a(href="/dashboard/remove-deck?classID=#{cls._id}&deckIndex=#{i}") 
                                 i.fa.fa-trash.left-icon 
+                            a(href="/dashboard/edit-deck?classID=#{cls._id}&deckIndex=#{i}") 
+                                i.fa.fa-edit.left-icon 
                         -}
-                        i.fa.fa-chevron-left.left-icon 
-                        i.fa.fa-eye.left-icon 
+                        //- i.fa.fa-chevron-left.left-icon 
                         a(href="#") 
                             i.fa.fa-play.left-icon 
                         -if(cls.decks[i].locked)
