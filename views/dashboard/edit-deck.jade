@@ -8,13 +8,28 @@ block content
         h1.title فلشکارت های دسته #{deck.title}
         form.flashcards(action="/dashboard/save-deck" method="POST") 
             input.hidden(type="text" name="classID" value="#{cls._id}")
+            input.hidden(type="text" name="deckIndex" value="#{deckIndex}")
             table#cards-table 
                 tr
                     th #
                     th سوال
                     th پاسخ
                     th 
-                tr#card  
+                -if(deck.question){
+                    -for(var i=0; i<deck.question.length; i++){
+                        tr
+                            input.hidden(type="text" name="type" value="text")
+                            td 1
+                            td  
+                                textarea(name="question" placeholder="سوال...")= deck.question[i]
+                            td  
+                                textarea(name="answer" placeholder="پاسخ...")= deck.answer[i]
+                            td 
+                                i.fa.fa-times.delete.delete-card
+                    -}
+                -}
+                tr#card.hidden  
+                    input.hidden(type="text" name="type" value="text")
                     td 1
                     td  
                         textarea(name="question" placeholder="سوال...")
@@ -28,4 +43,6 @@ block content
             button.submit(type="submit")
                 i.fa.fa-save 
                 | ذخیره
+            a.return-btn(href="/dashboard/class-view?classID=#{classID}") بازگشت
+                i.fa.fa-chevron-left
     script(src="/js/edit-deck.js") 

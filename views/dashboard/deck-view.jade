@@ -1,8 +1,32 @@
 extends deck-layout
 
 block styles
-    link(rel="stylesheet", href="/css/dashboard/user-dashboard.css")
+    link(rel="stylesheet", href="/css/dashboard/deck-view.css")
 
 block content
-    
-    script(src="/js/dashboard.js") 
+    h1.deck-title دسته: 
+        .bold #{deck.title} 
+        | فلشکارت: 
+        .bold 
+            #card-number 1
+            | /#{deck.question.length} 
+    .card-area 
+        .flashcard#question
+            -if(deck.type[0] == 'text')
+                .text= deck.question[0]
+            i.fa.fa-pencil.edit
+            .card-title Q
+        
+        //- button#reveal-ans مشاهده پاسخ
+        #score-btn 
+            .text چقدر این کارت را بلد بودید؟
+            .buttons
+                .score#score1 1
+                    .label اصلا بلد نبودم
+                .score#score2 2
+                .score#score3 3
+                .score#score4 4
+                .score#score5 5
+                    .label خیلی خوب
+
+    script(src="/js/deck-view.js") 

@@ -25,6 +25,8 @@
     --orange: #FF8A47;
     --red: #ff4747;
     --purple: #AA0080;
+    --yellow: #FFDD00;
+    --darkgreen: #7FAE2E;
     --green: #00DB68;
     --lightblue: #C8EBFE;
     --lightergray: #EAF2F6;
@@ -609,8 +611,26 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         border-radius: 2vw;
         text-align: center;
     }
-
-
+    a.return-btn{
+        /* background-color: var(--blue);
+        color: white; */
+        color: var(--blue);
+        padding: 0.5vw 2vw;
+        float: left;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        border-radius: 1vw;
+        text-decoration: none;
+        margin-top: 5vw;
+        font-weight: bold;
+    }
+    a.return-btn i{
+        padding: 0 0.5vw;
+        font-size: 1vw;
+    }
+    a.return-btn:hover{
+        color: var(--orange);
+    }
 }
 
 @media only screen and (max-width: 800px) {

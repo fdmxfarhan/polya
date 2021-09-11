@@ -1,0 +1,117 @@
+@media only screen and (min-width: 800px) {
+    h1.deck-title{
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        font-weight: normal;
+        margin-top: 3vw;
+        margin-right: 2vw;
+        color: var(--gray);
+    }
+    h1.deck-title .bold{
+        font-weight: bold;
+        display: inline;
+        color: var(--text);
+        margin-left: 0.5vw;
+    }
+    .card-area .flashcard{
+        width: 60%;
+        background-color: white;
+        margin: 0 auto;
+        height: 65vh;
+        border-radius: 1vw;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+        border-bottom: var(--purple) 0.6vw solid;
+        position: relative;
+        margin-top: 2vw;
+    }
+    .card-area .flashcard .text{
+        padding: 1vw 3vw;
+        /* background-color: lightblue; */
+    }
+    .card-area .flashcard i.edit{
+        position: absolute;
+        top: 2vw;
+        left: 2vw;
+        font-size: 1.3vw;
+        color: var(--lightgray);
+        cursor: pointer;
+    }
+    .card-area .flashcard i.edit:hover{
+        color: var(--blue);
+    }
+    .card-area .flashcard .card-title{
+        color: var(--lightgray);
+        position: absolute;
+        top: 2vw;
+        right: 2vw;
+        font-size: 1.3vw;
+        font-weight: normal;
+    }
+    .card-area button#reveal-ans{
+        width: 60%;
+        display: block;
+        margin: 1.5vw auto;
+        border: none;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        color: white;
+        background-color: var(--purple);
+        border-radius: 1vw;
+        padding: 1.5vw 0;
+        cursor: pointer;
+    }   
+    .card-area button#reveal-ans:hover{
+        background-color: var(--orange);
+    }
+    #card-number {
+        display: inline;
+    }
+    #score-btn {
+        width: 60%;
+        margin: auto;
+    }
+    #score-btn .text{
+        font-family: 'iransans';
+        font-size: 1vw;
+        text-align: center;
+        margin-top: 0.5vw;
+        color: var(--gray);
+    }
+    #score-btn .buttons{
+        overflow: hidden;
+        margin-top: 0.5vw;
+    }
+    #score-btn .buttons .score{
+        float: right;
+        text-align: center;
+        width: 20%;
+        border: none;
+        display: block;
+        height: 4vw;
+        color: white;
+        padding: 0.5vw 0;
+        font-size: 1.5vw;
+        padding-bottom: 0;
+        cursor: pointer;
+        transition-duration: 500ms;
+    }
+    #score-btn .buttons .score:hover{
+        height: 4.5vw;
+    }
+    #score-btn .buttons .score .label{
+        font-family: 'iransans';
+        font-size: 0.9vw;
+        margin: 0;
+        padding: 0;
+        margin-top: -0.5vw;
+    }
+    #score-btn .buttons .score#score1{background-color: var(--purple);}
+    #score-btn .buttons .score#score2{background-color: var(--orange);}
+    #score-btn .buttons .score#score3{background-color: var(--yellow);}
+    #score-btn .buttons .score#score4{background-color: var(--darkgreen);}
+    #score-btn .buttons .score#score5{background-color: var(--blue);}
+
+}

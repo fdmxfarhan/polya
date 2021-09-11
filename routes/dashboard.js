@@ -145,18 +145,45 @@ router.get('/edit-deck', ensureAuthenticated, (req, res, next) => {
     Class.find({}, (err, classes) => {
         Class.findById(classID, (err, cls) => {
             var deck = cls.decks[deckIndex];
+            console.log(deck);
             res.render('./dashboard/edit-deck', {
                 user: req.user,
                 cls,
                 deck,
                 classes,
+                deckIndex,
+                classID,
             });
         });
     });
 });
 
 router.post('/save-deck', ensureAuthenticated, (req, res, next) => {
-    console.log(req.body)
+    console.log(req.body);
+    var {classID, deckIndex, question, answer, type} = req.body;
+    if(typeof(question) == 'string' && typeof(answer) == 'string'){
+        question = [question];
+        answer = [answer];
+        type = [type];
+    }
+    for (let i = 0; i < question.length; i++) {
+        if(question[i] == '' && answer[i] == ''){
+            question.splice(i, 1);
+            answer.splice(i, 1);
+            type.splice(i, 1);
+            i--;
+        }
+    }
+    Class.findById(classID, (err, cls) => {
+        var decks = cls.decks;
+        decks[deckIndex].question = question;
+        decks[deckIndex].answer = answer;
+        decks[deckIndex].type = type;
+        Class.updateMany({_id: classID}, {$set: {decks}}, (err) => {
+            req.flash('success_msg', 'تغییرات با موفقیت ثبت شد');
+            res.redirect(`/dashboard/edit-deck?classID=${classID}&deckIndex=${deckIndex}`)
+        })
+    })
 });
 
 
