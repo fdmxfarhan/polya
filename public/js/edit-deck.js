@@ -18,6 +18,8 @@ $(document).ready(function(){
             fileAnswer: $(`#fileAnswer${i}`), 
             question: $(`#question${i}`), 
             answer: $(`#answer${i}`), 
+            imgQuestion: $(`#imgQuestion${i}`), 
+            imgAnswer: $(`#imgAnswer${i}`), 
             type: document.getElementById(`type${i}`), 
         });
     }
@@ -30,6 +32,8 @@ $(document).ready(function(){
             card.pictureButton.hide()
             card.textButton.show()
             card.type.setAttribute('value', 'picture');
+            card.imgQuestion.show();
+            card.imgAnswer.show();
         });
         card.textButton.click(() => {
             card.question.show()
@@ -39,6 +43,8 @@ $(document).ready(function(){
             card.pictureButton.show()
             card.textButton.hide()
             card.type.setAttribute('value', 'text');
+            card.imgQuestion.hide();
+            card.imgAnswer.hide();
         });
     }
     deck.forEach(card => cardEvents(card));

@@ -7,7 +7,10 @@ var ClassSchema = new mongoose.Schema({
   icon: String,
   decks: [Object],
   createDate: Date,
-
+  public: {
+    type: Boolean,
+    default: true,
+  }
 });
 
 var Class = mongoose.model('Class', ClassSchema);

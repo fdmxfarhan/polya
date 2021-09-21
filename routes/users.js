@@ -22,7 +22,7 @@ router.get('/login', (req, res, next) => {
   
 router.post('/register', (req, res, next) => {
     const { firstName, lastName, email, password, confirm} = req.body;
-    const role = 'admin', card = 0;
+    const role = 'user', card = 0;
     const ipAddress = req.connection.remoteAddress;
     let errors = [];
     /// check required

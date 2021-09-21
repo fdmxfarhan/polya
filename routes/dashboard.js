@@ -8,28 +8,46 @@ const mail = require('../config/mail');
 
 
 router.get('/', ensureAuthenticated, (req, res, next) => {
-    Class.find({}, (err, classes) => {
+    Class.find({$or: [{public: true}, {userID: req.user._id}]}, (err, classes) => {
         if(req.user.role == 'user')
         {
-            res.render('./dashboard/user-dashboard', {
-                user: req.user,
-                login: req.query.login,
-                classes
-            });
+            if(classes.length > 0)
+                res.redirect(`/dashboard/class-view?classID=${classes[0]._id}`)
+            else{
+                res.render('./dashboard/user-dashboard', {
+                    user: req.user,
+                    login: req.query.login,
+                    classes
+                });
+            }
         }
         else if(req.user.role = 'admin')
         {
-            res.render('./dashboard/admin-dashboard', {
-                user: req.user,
-                login: req.query.login,
-                classes
+            User.find({}, (err, users) => {
+                var numberOfDecks = 0;
+                var numberOfFlashcards = 0;
+                if(classes.length > 1)
+                    numberOfDecks = classes.map(e => e.decks.length).reduce((a, b) => a+b);
+                try {
+                    numberOfFlashcards = classes.map(e => e.decks.map(d => d.cards.length).reduce((a,b) => a+b)).reduce((a, b) => a+b);
+                } catch (error) {
+                    numberOfFlashcards = 0;
+                }
+                res.render('./dashboard/admin-dashboard', {
+                    user: req.user,
+                    login: req.query.login,
+                    classes,
+                    users,
+                    numberOfFlashcards,
+                    numberOfDecks,
+                });
             });
         }
     });
 });
 
 router.get('/settings', ensureAuthenticated, (req, res, next) => {
-    Class.find({}, (err, classes) => {
+    Class.find({$or: [{public: true}, {userID: req.user._id}]}, (err, classes) => {
         res.render('./dashboard/user-settings', {
           user: req.user,
           classes,
@@ -39,7 +57,7 @@ router.get('/settings', ensureAuthenticated, (req, res, next) => {
 
 router.get('/users', ensureAuthenticated, (req, res, next) => {
     if(req.user.role == 'admin'){
-        Class.find({}, (err, classes) => {
+        Class.find({$or: [{public: true}, {userID: req.user._id}]}, (err, classes) => {
             User.find({}, (err, users) => {
                 res.render('./dashboard/admin-users', {
                     user: req.user,
@@ -54,6 +72,8 @@ router.get('/users', ensureAuthenticated, (req, res, next) => {
 
 router.post('/add-class', ensureAuthenticated, (req, res, next) => {
     var {title, iconElement} = req.body;
+    var public = true;
+    if(req.user.role == 'user') public = false;
     if(title && iconElement){
         var newClass = new Class({
             userID: req.user._id, 
@@ -62,6 +82,7 @@ router.post('/add-class', ensureAuthenticated, (req, res, next) => {
             icon: iconElement,
             deck: [],
             createDate: Date.now(),
+            public,
         });
         newClass.save().then(doc => {
             res.redirect(`/dashboard/class-view?classID=${newClass._id}`);
@@ -75,8 +96,11 @@ router.post('/add-class', ensureAuthenticated, (req, res, next) => {
 router.get('/class-view', ensureAuthenticated, (req, res, next) => {
     var classID = req.query.classID;
     if(classID){
-        Class.find({}, (err, classes) => {
+        Class.find({$or: [{public: true}, {userID: req.user._id}]}, (err, classes) => {
             Class.findById(classID, (err, cls) => {
+                for(var i=0; i<cls.decks.length; i++){
+                    cls.decks[i].percent = Math.floor(((cls.decks[i].cards.map(e => e.score).filter(e => typeof(e) != 'undefined').length)/cls.decks[i].cards.length) *100);
+                }
                 res.render('./dashboard/class-view', {
                     user: req.user,
                     cls,
@@ -129,7 +153,7 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
     var {classID, deckIndex, questionNum} = req.query;
     if(!questionNum) questionNum = 0
     else questionNum = parseInt(questionNum)
-    Class.find({}, (err, classes) => {
+    Class.find({$or: [{public: true}, {userID: req.user._id}]}, (err, classes) => {
         Class.findById(classID, (err, cls) => {
             var deck = cls.decks[deckIndex];
             res.render('./dashboard/deck-view', {
@@ -148,7 +172,7 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
 router.get('/edit-deck', ensureAuthenticated, (req, res, next) => {
     var {classID, deckIndex} = req.query;
     deckIndex = parseInt(deckIndex);
-    Class.find({}, (err, classes) => {
+    Class.find({$or: [{public: true}, {userID: req.user._id}]}, (err, classes) => {
         Class.findById(classID, (err, cls) => {
             var deck = cls.decks[deckIndex];
             console.log(deck.cards);

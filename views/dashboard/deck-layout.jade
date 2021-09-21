@@ -29,6 +29,44 @@ html
                         img.avatar(src="/img/avatar/10.png")
                         h1.name= user.fullname
                         .statistics 3 کارت مطالعه شده - 1 دسته ساخته شده
+                .statistics-view
+                    -var value = cards.length - cards.map(e => e.score).filter(e => typeof(e) != 'undefined').length;
+                    .statistic
+                        .name New
+                        .progressbar
+                            .bar#bar0(style="width: #{(value/cards.length)*100}%;")
+                        .number= value
+                    -var value = cards.map(e => e.score).filter(e => typeof(e) != 'undefined' && e == 1).length;
+                    .statistic
+                        .name 1
+                        .progressbar
+                            .bar#bar1(style="width: #{(value/cards.length)*100}%;")
+                        .number= value
+                    -var value = cards.map(e => e.score).filter(e => typeof(e) != 'undefined' && e == 2).length;
+                    .statistic
+                        .name 2
+                        .progressbar
+                            .bar#bar2(style="width: #{(value/cards.length)*100}%;")
+                        .number= value
+                    -var value = cards.map(e => e.score).filter(e => typeof(e) != 'undefined' && e == 3).length;
+                    .statistic
+                        .name 3
+                        .progressbar
+                            .bar#bar3(style="width: #{(value/cards.length)*100}%;")
+                        .number= value
+                    -var value = cards.map(e => e.score).filter(e => typeof(e) != 'undefined' && e == 4).length;
+                    .statistic
+                        .name 4
+                        .progressbar
+                            .bar#bar4(style="width: #{(value/cards.length)*100}%;")
+                        .number= value
+                    -var value = cards.map(e => e.score).filter(e => typeof(e) != 'undefined' && e == 5).length;
+                    .statistic
+                        .name 5
+                        .progressbar
+                            .bar#bar5(style="width: #{(value/cards.length)*100}%;")
+                        .number= value
+                
                 
             .content-area
                 .message-area

@@ -27,7 +27,7 @@ block content
                                 -if(cards[i].type == 'picture'){
                                     input(type="file" id="fileQuestion#{i}" name="fileQuestion#{i}")
                                     textarea.hidden(name="question#{i}" id="question#{i}" placeholder="سوال...")= cards[i].question
-                                    img.preview(src="#{cards[i].question}")
+                                    img.preview(src="#{cards[i].question}" id="imgQuestion#{i}")
                                 -}else{
                                     input.hidden(type="file" id="fileQuestion#{i}" name="fileQuestion#{i}")
                                     textarea(name="question#{i}" id="question#{i}" placeholder="سوال...")= cards[i].question
@@ -36,7 +36,7 @@ block content
                                 -if(cards[i].type == 'picture'){
                                     input(type="file" id="fileAnswer#{i}" name="fileAnswer#{i}")
                                     textarea.hidden(name="answer#{i}" id="answer#{i}" placeholder="پاسخ...")= cards[i].answer
-                                    img.preview(src="#{cards[i].answer}")
+                                    img.preview(src="#{cards[i].answer}" id="imgAnswer#{i}")
                                 -}else{
                                     input.hidden(type="file" id="fileAnswer#{i}" name="fileAnswer#{i}")
                                     textarea(name="answer#{i}" id="answer#{i}" placeholder="پاسخ...")= cards[i].answer

@@ -1,14 +1,14 @@
 .login-popup#login-popup
     i.fa.fa-times.close-login 
     h1.title ورود
-    a.google(href="#") 
-        i.fa.fa-apple
-        .text ورود با اپل
-    a.google(href="#") 
-        i.fa.fa-google 
-        .text ورود با گوگل
-    .br-line 
-        .text یا
+    //- a.google(href="#") 
+    //-     i.fa.fa-apple
+    //-     .text ورود با اپل
+    //- a.google(href="#") 
+    //-     i.fa.fa-google 
+    //-     .text ورود با گوگل
+    //- .br-line 
+    //-     .text یا
     form(action="/users/login" method="POST") 
         .text-input
             input#email-input(type="text" name="email")
@@ -36,30 +36,30 @@
     .column70
         i.fa.fa-times.close-register
         h1.title شروع کنید
-        a.google(href="#") 
-            i.fa.fa-apple
-            .text ورود با اپل
-        a.google(href="#") 
-            i.fa.fa-google 
-            .text ورود با گوگل
-        .br-line 
+        //- a.google(href="#") 
+        //-     i.fa.fa-apple
+        //-     .text ورود با اپل
+        //- a.google(href="#") 
+        //-     i.fa.fa-google 
+        //-     .text ورود با گوگل
+        //- .br-line 
             //- .text یا
         form(action="/users/register" method="POST") 
             .two-text-input
                 .text-input
-                    .label نام
+                    .label نام:
                     input(type="text" name="firstName" required)
                 .text-input 
-                    .label نام خانوادگی
+                    .label نام خانوادگی:
                     input(type="text" name="lastName" required)
             .text-input
-                .label#email-label ایمیل
+                .label#email-label ایمیل:
                 input#email-input(type="text" name="email" required)
             .text-input
-                .label#pass-label کلمه عبور
+                .label#pass-label کلمه عبور:
                 input#pass-input(type="password" name="password" required)
             .text-input
-                .label#pass-label تایید کلمه عبور
+                .label#pass-label تایید کلمه عبور:
                 input#pass-input(type="password" name="confirm" required)
             .check-input
                 input.check(type="checkbox" name="accept" id="accept" required)

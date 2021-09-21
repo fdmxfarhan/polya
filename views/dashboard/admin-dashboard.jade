@@ -7,28 +7,28 @@ block content
     .cards-view 
         a.card.blue(href="/dashboard/users")
             i.fa.fa-user 
-            h1.number 1234
+            h1.number= users.length
             .progress-bar
-                .passed(style="width: 30%")
+                .passed(style="width: #{users.length > 100? 100 : users.length}%")
             h1.title کاربران
         a.card.orange(href="#")
             i.fa.fa-dollar
-            h1.number 1234 تومان
+            h1.number= classes.length
             .progress-bar
-                .passed(style="width: 50%")
-            h1.title درآمد
+                .passed(style="width: #{classes.length > 100? 100 : classes.length}%")
+            h1.title کلاس‌ها
         a.card.green(href="#")
             i.fa.fa-credit-card
-            h1.number 1235
+            h1.number= numberOfDecks
             .progress-bar
-                .passed(style="width: 10%")
-            h1.title فلشکارت‌ها
+                .passed(style="width: #{numberOfDecks > 100? 100 : numberOfDecks}%")
+            h1.title دسته‌ها
         a.card.red(href="#")
             i.fa.fa-graduation-cap
-            h1.number 1234
+            h1.number= numberOfFlashcards
             .progress-bar
-                .passed(style="width: 90%")
-            h1.title کلاس‌ها
+                .passed(style="width: #{numberOfFlashcards > 100? 100 : numberOfFlashcards}%")
+            h1.title فلشکارت‌ها
     
     .charts-view 
         .chart1 
