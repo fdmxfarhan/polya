@@ -24,7 +24,8 @@ block content
                     a.icon#add-deck-btn
                         i.fa.fa-plus
                 -}
-                a.button(href="#") یادگیری 2 دسته
+                -if(cls.decks.length > 0)
+                    a.button(href="/dashboard/deck-view?classID=#{cls._id}&deckIndex=#{0}") یادگیری 2 دسته
     .tabs-view 
         .tab#tab1 درباره
         .tab.active#tab1 دسته ها (#{cls.decks.length})
