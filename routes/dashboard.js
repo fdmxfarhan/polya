@@ -266,6 +266,79 @@ router.post('/change-password', ensureAuthenticated, (req, res, next) => {
     }
 })
 
+router.get('/make-admin', ensureAuthenticated, (req, res, next) => {
+    var {userID} = req.query;
+    if(req.user.role == 'admin'){
+        User.updateMany({_id: userID}, {$set: {role: 'admin'}}, (err) => {
+            res.redirect('/dashboard/users');
+        })
+    }
+})
+
+router.get('/make-user', ensureAuthenticated, (req, res, next) => {
+    var {userID} = req.query;
+    if(req.user.role == 'admin'){
+        User.updateMany({_id: userID}, {$set: {role: 'user'}}, (err) => {
+            res.redirect('/dashboard/users');
+        })
+    }
+})
+
+router.get('/delete-user', ensureAuthenticated, (req, res, next) => {
+    if(req.user.role == 'admin'){
+        User.deleteOne({_id: req.query.userID}, (err) => {
+            req.flash('success_msg', 'کاربر با موفقیت حذف شد');
+            res.redirect('/dashboard/users');
+        });
+    }
+});
+
+router.post('/add-user', ensureAuthenticated, (req, res, next) => {
+    const { firstName, lastName, email, password, confirm} = req.body;
+    const role = 'user', card = 0;
+    const ipAddress = req.connection.remoteAddress;
+    let errors = [];
+    if(!firstName || !lastName || !email || !password || !confirm){
+        errors.push({msg: 'لطفا موارد خواسته شده را کامل کنید!'});
+    }
+    /// check password match
+    if(password !== confirm){
+        errors.push({msg: 'تایید رمز عبور صحیح نمیباشد!'});
+    }
+    /// check password length
+    if(password.length < 4){
+        errors.push({msg: 'رمز عبور شما بسیار ضعیف میباشد!'});
+    }
+    ///////////send evreything 
+    if(errors.length > 0 ){
+        res.redirect('/dashboard/users')
+    }
+    else{
+        const fullname = firstName + ' ' + lastName;
+        // validation passed
+        User.findOne({ email: email})
+            .then(user =>{
+            if(user){
+                // user exist
+                errors.push({msg: 'پست الکترونیکی قبلا ثبت شده است.'});
+                res.redirect('/dashboard/users')
+            }
+            else {
+                const newUser = new User({firstName, lastName, email, password, role, card, fullname});
+                // Hash password
+                bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt, (err, hash) => {
+                if(err) throw err;
+                newUser.password = hash;
+                newUser.save()
+                    .then(user => {
+                        res.redirect('/dashboard/users')
+                    }).catch(err => console.log(err));
+                }));
+                console.log(newUser);
+            }
+        });
+    }  
+});
 
 module.exports = router;
 

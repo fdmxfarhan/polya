@@ -3,6 +3,10 @@ $(document).ready(function(){
         $('.black-modal').fadeIn(500);
         $('#add-deck-popup').fadeIn(500);
     });
+    $('#add-deck-btn2').click(() => {
+        $('.black-modal').fadeIn(500);
+        $('#add-deck-popup').fadeIn(500);
+    });
     $('.black-modal').click(() =>{
         $('.black-modal').fadeOut(500);
         $('#add-deck-popup').fadeOut(500);

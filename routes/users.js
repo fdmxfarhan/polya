@@ -48,7 +48,7 @@ router.post('/register', (req, res, next) => {
             .then(user =>{
             if(user){
                 // user exist
-                errors.push({msg: 'کد ملی قبلا ثبت شده است.'});
+                errors.push({msg: 'پست الکترونیکی قبلا ثبت شده است.'});
                 res.render('register', { firstName, lastName, email, password, confirm, errors });
             }
             else {

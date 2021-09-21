@@ -74,6 +74,10 @@
         margin: 0;
         padding: 0 0.5vw;
     }
+    .content-view .users-view table td.role a{
+        text-decoration: none;
+        font-family: 'iransans';
+    }
     .content-view .users-view table td.role .role-user{
         background-color: var(--green);
         color: white;
@@ -93,7 +97,7 @@
     .content-view .users-view table td.acounts h1{
         margin: 0;
         font-family: 'iransans';
-        font-size: 1.2vw;
+        font-size: 1vw;
         color: var(--text);
         padding: 0 0.5vw;
     }

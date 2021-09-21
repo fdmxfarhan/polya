@@ -56,6 +56,11 @@ block content
                         -if(cls.decks[i].locked)
                             a.unlock(href="#") باز کردن
             -}
+            -if(user.role == 'admin' || user._id.toString() == cls.userID.toString()){
+                .add-deck#add-deck-btn2
+                    i.fa.fa-plus 
+                    h1 افزودن دسته کارت
+            -}
             //- a(href="#") 
             //-     .deck 
             //-         i.fa.fa-circle-o.circle

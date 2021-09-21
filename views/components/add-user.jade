@@ -1,0 +1,42 @@
+.register-popup#add-user-popup
+    .column30 
+        img.logo(src="/img/logo.png")
+        h1 شروع یادگیری سریعتر
+        ul 
+            li
+                span یادگیری هر مطلبی در نصف زمان معمولی با استفاده از دانش شناخت
+            li
+                span ساخت فلشکارت های اختصاصی
+            li
+                span جستجو در بین میلیون ها کارت آماده
+            li
+                span استفاده همزمان در اپلیکیشن موبایل
+    .column70
+        i.fa.fa-times.close-register
+        h1.title شروع کنید
+        //- a.google(href="#") 
+        //-     i.fa.fa-apple
+        //-     .text ورود با اپل
+        //- a.google(href="#") 
+        //-     i.fa.fa-google 
+        //-     .text ورود با گوگل
+        //- .br-line 
+            //- .text یا
+        form(action="/dashboard/add-user" method="POST") 
+            .two-text-input
+                .text-input
+                    .label نام:
+                    input(type="text" name="firstName" required)
+                .text-input 
+                    .label نام خانوادگی:
+                    input(type="text" name="lastName" required)
+            .text-input
+                .label#email-label ایمیل:
+                input#email-input(type="text" name="email" required)
+            .text-input
+                .label#pass-label کلمه عبور:
+                input#pass-input(type="password" name="password" required)
+            .text-input
+                .label#pass-label تایید کلمه عبور:
+                input#pass-input(type="password" name="confirm" required)
+            input.submit(type="submit" value="ثبت نام")

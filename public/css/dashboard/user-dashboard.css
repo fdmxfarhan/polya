@@ -100,6 +100,27 @@
         background-color: white;
     }
     .decks-view .deck:hover{background-color: rgb(242, 252, 255);}
+    .decks-view .add-deck{
+        overflow: hidden;
+        /* border-bottom: var(--lightgray) 0.1vw solid; */
+        /* background-color: white; */
+        cursor: pointer;
+        margin-top: 1vw;
+    }
+    .decks-view .add-deck i{
+        float: right;
+        font-size: 2vw;
+        margin-right: 3vw;
+        padding: 1vw 2vw;
+        color: var(--orange);
+    }
+    .decks-view .add-deck h1{
+        float: right;
+        margin: 0;
+        padding: 0.8vw 0;
+        font-size: 1.3vw;
+        color: var(--orange);
+    }
     .decks-view .deck a{text-decoration: none;}
     .decks-view .deck i.circle{
         float: right;
