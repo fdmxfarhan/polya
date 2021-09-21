@@ -1,8 +1,32 @@
 extends layout
 
 block styles
-    link(rel="stylesheet", href="/css/dashboard/user-dashboard.css")
+    link(rel="stylesheet", href="/css/dashboard/settings.css")
 
 block content
-    h1 settings
+    .user-setting
+        h1.title تنظیمات حساب کاربری
+        form(action="/dashboard/settings" method="POST") 
+            .two-text-input
+                .text-input
+                    .label نام:
+                    input(type="text" name="firstName" required value="#{user.firstName}")
+                .text-input 
+                    .label نام خانوادگی:
+                    input(type="text" name="lastName" required value="#{user.lastName}")
+            .text-input
+                .label#email-label ایمیل:
+                input#email-input(type="text" name="email" required value="#{user.email}")
+            input.submit(type="submit" value="ثبت")
+            br
+        br
+        form(action="/dashboard/change-password" method="POST") 
+            .text-input
+                .label#pass-label کلمه عبور:
+                input#pass-input(type="password" name="password" required value="#{user.firstName}")
+            .text-input
+                .label#pass-label تایید کلمه عبور:
+                input#pass-input(type="password" name="confirm" required)
+            input.submit(type="submit" value="ثبت")
+
     script(src="/js/dashboard.js") 

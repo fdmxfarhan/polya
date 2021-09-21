@@ -5,6 +5,7 @@ const { ensureAuthenticated } = require('../config/auth');
 var User = require('../models/User');
 var Class = require('../models/Class');
 const mail = require('../config/mail');
+const bcrypt = require('bcryptjs');
 
 
 router.get('/', ensureAuthenticated, (req, res, next) => {
@@ -242,6 +243,26 @@ router.get('/score-card', ensureAuthenticated, (req, res, next) => {
         })
     });
 })
+
+router.post('/settings', ensureAuthenticated, (req, res, next) => {
+    const { firstName, lastName, email} = req.body;
+    User.updateMany({_id: req.user._id}, {$set: {firstName, lastName, email, fullname: firstName + ' ' + lastName}}, (err) => {
+        res.redirect('/dashboard/settings')
+    })
+})
+
+router.post('/change-password', ensureAuthenticated, (req, res, next) => {
+    const { password, confirm} = req.body;
+    if(password == confirm){
+        bcrypt.genSalt(10, (err, salt) => bcrypt.hash(password, salt, (err, hash) => {
+            if(err) throw err;
+            User.updateMany({_id: req.user._id}, {$set: {password: hash}}, (err) => {
+                res.redirect('/dashboard/settings')
+            })
+        }));
+    }
+})
+
 
 module.exports = router;
 
