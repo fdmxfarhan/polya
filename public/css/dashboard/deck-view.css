@@ -123,6 +123,32 @@
     #score-btn .buttons .score#score3{background-color: var(--yellow);}
     #score-btn .buttons .score#score4{background-color: var(--darkgreen);}
     #score-btn .buttons .score#score5{background-color: var(--blue);}
-    
+    .finish-studing {
+        text-align: center;
+    }
+    .finish-studing h1{
+        margin-top: 30vh;
+        color: var(--gray);
+        font-size: 3vw;
+        font-weight: normal;
+    }
+    .finish-studing a{
+        background-color: var(--green);
+        text-decoration: none;
+        border-radius: 2vw;
+        border: none;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        padding: 0.4vw 3vw;
+        display: block;
+        width: fit-content;
+        margin: auto;
+        color: white;
+        margin-bottom: 2vw;
+        cursor: pointer;
+    }
+    .finish-studing a:hover{
+        background-color: var(--orange);
+    }
 }
 .hidden{display: none;}

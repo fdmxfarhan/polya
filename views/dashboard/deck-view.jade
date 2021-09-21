@@ -10,7 +10,11 @@ block content
         .bold 
             #card-number 1
             | /#{cards.length} 
-    -if(questionNum < cards.length){
+    -if(cards.length == 0){
+        .finish-studing 
+            h1 کارتی جهت نمایش وجود ندارد
+            a(href="/dashboard/class-view?classID=#{cls._id}") بازگشت به کلاس
+    -}else if(questionNum < cards.length){
         .card-area 
             .flashcard#question
                 -if(cards[questionNum].type == 'text')
@@ -40,7 +44,8 @@ block content
                     a.score#score5(href="/dashboard/score-card?classID=#{cls._id}&deckIndex=#{deckIndex}&questionNum=#{questionNum}&score=5") 5
                         .label خیلی خوب
     -}else{
-        .finish-studing اتمام مطالعه کارت ها
-
+        .finish-studing 
+            h1 اتمام مطالعه کارت ها
+            a(href="/dashboard/class-view?classID=#{cls._id}") بازگشت به کلاس
     -}
     script(src="/js/deck-view.js") 

@@ -1,0 +1,94 @@
+@media only screen and (min-width: 800px) {
+    .pricing-content{
+        text-align: center;
+    }
+    .pricing-content h1.title{
+        margin-top: 4vw;
+        font-family: 'iransans';
+        font-size: 2.5vw;
+    }
+    .pricing-content p.text{
+        color: var(--text);
+        font-size: 1.3vw;
+        width: 90%;
+        margin: 2vw auto;
+    }
+    .cards-view{
+        overflow: hidden;
+        width: 90%;
+        margin: auto;
+    }
+    .cards-view .card{
+        display: block;
+        text-decoration: none;
+        width: 23%;
+        margin: 1vw 1%;
+        float: right;
+        background-color: white;
+        box-shadow: 0 0 0.3vw 0.1vw rgba(0, 0, 0, 0.1);
+    }
+    .cards-view .card h1{
+        color: var(--blue);
+        font-family: 'iransans';
+        font-size: 1.7vw;
+        margin: 0;
+        font-weight: normal;
+        margin-top: 1vw;
+    }
+    .cards-view .card .price{
+        color: var(--green);
+        font-family: 'iransans';
+        font-size: 2vw;
+        margin: 0;
+        font-weight: normal;
+        margin-top: 1vw;
+    }
+    .cards-view .card .currency{
+        display: inline;
+        color: var(--gray);
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        margin: 0;
+        font-weight: bold;
+        margin-top: 1vw;
+        margin-bottom: 0;
+    }
+    .cards-view .card p{
+        color: var(--lightgray);
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        margin: 0;
+        font-weight: normal;
+        margin-top: 0;
+    }
+    .cards-view .card .upgrade{
+        background-color: rgb(52, 99, 226);
+        color: white;
+        padding: 0.4vw 0;
+        margin-top: 1.5vw;
+        font-family: 'iransans';
+    }
+    .features-view {
+        overflow: hidden;
+        width: 70%;
+        margin: auto;
+        text-align: right;
+    }
+    .features-view ul.column {
+        float: right;
+        width: 45%;
+        text-align: center;
+    }
+    .features-view ul.column li{
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        color: var(--darkblue);
+        margin-bottom: 0.5vw;
+    }
+
+}
+
+
+
+
+

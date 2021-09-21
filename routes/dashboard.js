@@ -130,7 +130,7 @@ router.post('/add-deck', ensureAuthenticated, (req, res, next) => {
     Class.findById(classID, (err, cls) => {
         var decks = cls.decks;
         var locked = false;
-        if(cls.decks.length > 3) locked = true;
+        if(cls.decks.length > 1) locked = true;
         decks.push({
             title: title,
             creationDate: Date.now(),
@@ -169,15 +169,18 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
     Class.find({$or: [{public: true}, {userID: req.user._id}]}, (err, classes) => {
         Class.findById(classID, (err, cls) => {
             var deck = cls.decks[deckIndex];
-            res.render('./dashboard/deck-view', {
-                user: req.user,
-                cls,
-                deck,
-                classes,
-                deckIndex,
-                questionNum,
-                cards: deck.cards
-            });
+            if(deck.locked && req.user.role != 'admin') res.redirect(`/pricing`);
+            else{
+                    res.render('./dashboard/deck-view', {
+                    user: req.user,
+                    cls,
+                    deck,
+                    classes,
+                    deckIndex,
+                    questionNum,
+                    cards: deck.cards
+                });
+            }
         });
     });
 });
