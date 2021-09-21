@@ -31,6 +31,11 @@
         padding: 1vw 3vw;
         /* background-color: lightblue; */
     }
+    .card-area .flashcard img{
+        height: 45vh;
+        margin: auto;
+    }
+
     .card-area .flashcard i.edit{
         position: absolute;
         top: 2vw;
@@ -84,6 +89,11 @@
         overflow: hidden;
         margin-top: 0.5vw;
     }
+    #score-btn .buttons a{
+        text-decoration: none;
+        font-family: 'iransans';
+        
+    }
     #score-btn .buttons .score{
         float: right;
         text-align: center;
@@ -113,5 +123,6 @@
     #score-btn .buttons .score#score3{background-color: var(--yellow);}
     #score-btn .buttons .score#score4{background-color: var(--darkgreen);}
     #score-btn .buttons .score#score5{background-color: var(--blue);}
-
+    
 }
+.hidden{display: none;}

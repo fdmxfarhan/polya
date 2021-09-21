@@ -17,6 +17,7 @@ const passport = require('passport');
 var homeRoute = require('./routes/home');
 var usersRoute = require('./routes/users');
 var dashboardRoute = require('./routes/dashboard');
+var uploadRoute = require('./routes/upload');
 
 
 // Mongo DB connect
@@ -71,7 +72,7 @@ var credentials = {key: privateKey, cert: certificate};
 const port = 3000
 
 // Upload
-// app.use('/upload', uploadHandler);
+app.use('/upload', uploadRoute);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

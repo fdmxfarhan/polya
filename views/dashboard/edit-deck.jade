@@ -4,9 +4,10 @@ block styles
     link(rel="stylesheet", href="/css/dashboard/edit-deck.css")
 
 block content
+    -var cnt = 0
     .edit-deck 
         h1.title فلشکارت های دسته #{deck.title}
-        form.flashcards(action="/dashboard/save-deck" method="POST") 
+        form.flashcards(action="/upload/save-deck" enctype="multipart/form-data" method="POST") 
             input.hidden(type="text" name="classID" value="#{cls._id}")
             input.hidden(type="text" name="deckIndex" value="#{deckIndex}")
             table#cards-table 
@@ -15,34 +16,66 @@ block content
                     th سوال
                     th پاسخ
                     th 
-                -if(deck.question){
-                    -for(var i=0; i<deck.question.length; i++){
+                    th 
+                -if(cards){
+                    -for(var i=0; i<cards.length; i++){
+                        -cnt++;
                         tr
-                            input.hidden(type="text" name="type" value="text")
-                            td 1
+                            input.hidden(type="text" name="type#{i}" value="#{cards[i].type}" id="type#{i}")
+                            td= i+1
                             td  
-                                textarea(name="question" placeholder="سوال...")= deck.question[i]
+                                -if(cards[i].type == 'picture'){
+                                    input(type="file" id="fileQuestion#{i}" name="fileQuestion#{i}")
+                                    textarea.hidden(name="question#{i}" id="question#{i}" placeholder="سوال...")= cards[i].question
+                                    img.preview(src="#{cards[i].question}")
+                                -}else{
+                                    input.hidden(type="file" id="fileQuestion#{i}" name="fileQuestion#{i}")
+                                    textarea(name="question#{i}" id="question#{i}" placeholder="سوال...")= cards[i].question
+                                -}
                             td  
-                                textarea(name="answer" placeholder="پاسخ...")= deck.answer[i]
+                                -if(cards[i].type == 'picture'){
+                                    input(type="file" id="fileAnswer#{i}" name="fileAnswer#{i}")
+                                    textarea.hidden(name="answer#{i}" id="answer#{i}" placeholder="پاسخ...")= cards[i].answer
+                                    img.preview(src="#{cards[i].answer}")
+                                -}else{
+                                    input.hidden(type="file" id="fileAnswer#{i}" name="fileAnswer#{i}")
+                                    textarea(name="answer#{i}" id="answer#{i}" placeholder="پاسخ...")= cards[i].answer
+                                -}
                             td 
                                 i.fa.fa-times.delete.delete-card
+                            td 
+                                -if(cards[i].type == 'picture'){
+                                    i.fa.fa-photo.change-to-picture.hidden(id="change-to-picture#{i}")
+                                    i.fa.fa-file-text.change-to-text(id="change-to-text#{i}")
+                                -}else{
+                                    i.fa.fa-photo.change-to-picture(id="change-to-picture#{i}")
+                                    i.fa.fa-file-text.change-to-text.hidden(id="change-to-text#{i}")
+                                -}
                     -}
                 -}
                 tr#card.hidden  
-                    input.hidden(type="text" name="type" value="text")
-                    td 1
+                    td.hidden 
+                        input.hidden(type="text" name="type" value="text" id="sampleType")
+                    td= cnt+1
                     td  
+                        input.hidden(type="file" id="sampleFileQuestion" name="sampleFileQuestion")
                         textarea(name="question" placeholder="سوال...")
                     td  
+                        input.hidden(type="file" id="sampleFileAnswer" name="sampleFileAnswer")
                         textarea(name="answer" placeholder="پاسخ...")
                     td 
                         i.fa.fa-times.delete.delete-card
+                    td 
+                        i.fa.fa-photo.change-to-picture(id="sample-change-to-picture")
+                        i.fa.fa-file-text.change-to-text.hidden(id="sample-change-to-text")
             #add-flashcard 
                 i.fa.fa-plus 
                 | افزودن فلشکارت
+            input.hidden(type="number" name="numberOfCards" id="numberOfCards" value="#{cnt+1}")
             button.submit(type="submit")
                 i.fa.fa-save 
                 | ذخیره
             a.return-btn(href="/dashboard/class-view?classID=#{classID}") بازگشت
                 i.fa.fa-chevron-left
+    #cnt.hidden= cnt
     script(src="/js/edit-deck.js") 

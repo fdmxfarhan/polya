@@ -30,6 +30,16 @@
         padding: 0.2vw 0.4vw;
         border-radius: 50%;
     }
+    .edit-deck table i.change-to-picture, .edit-deck table i.change-to-text{
+        color: var(--blue);
+        font-size: 1.4vw;
+        cursor: pointer;
+        padding: 0.2vw 0.4vw;
+        border-radius: 50%;
+    }
+    .edit-deck table i.change-to-picture:hover, .edit-deck table i.change-to-text:hover{
+        color: var(--orange);
+    }
     .edit-deck table i.delete:hover{
         background-color: red;
         color: white;
@@ -79,6 +89,10 @@
     #add-flashcard i{
         padding: 0 0.5vw;
     }
+    .edit-deck table td img.preview{
+        height: 6vw;
+    }
+
 }
 @media only screen and (max-width: 800px) {
     

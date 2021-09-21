@@ -126,7 +126,9 @@ router.get('/remove-deck', ensureAuthenticated, (req, res, next) => {
 });
 
 router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
-    var {classID, deckIndex} = req.query;
+    var {classID, deckIndex, questionNum} = req.query;
+    if(!questionNum) questionNum = 0
+    else questionNum = parseInt(questionNum)
     Class.find({}, (err, classes) => {
         Class.findById(classID, (err, cls) => {
             var deck = cls.decks[deckIndex];
@@ -135,6 +137,9 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
                 cls,
                 deck,
                 classes,
+                deckIndex,
+                questionNum,
+                cards: deck.cards
             });
         });
     });
@@ -142,10 +147,11 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
 
 router.get('/edit-deck', ensureAuthenticated, (req, res, next) => {
     var {classID, deckIndex} = req.query;
+    deckIndex = parseInt(deckIndex);
     Class.find({}, (err, classes) => {
         Class.findById(classID, (err, cls) => {
             var deck = cls.decks[deckIndex];
-            console.log(deck);
+            console.log(deck.cards);
             res.render('./dashboard/edit-deck', {
                 user: req.user,
                 cls,
@@ -153,6 +159,7 @@ router.get('/edit-deck', ensureAuthenticated, (req, res, next) => {
                 classes,
                 deckIndex,
                 classID,
+                cards: deck.cards
             });
         });
     });
@@ -161,6 +168,7 @@ router.get('/edit-deck', ensureAuthenticated, (req, res, next) => {
 router.post('/save-deck', ensureAuthenticated, (req, res, next) => {
     console.log(req.body);
     var {classID, deckIndex, question, answer, type} = req.body;
+    deckIndex = parseInt(deckIndex);
     if(typeof(question) == 'string' && typeof(answer) == 'string'){
         question = [question];
         answer = [answer];
@@ -186,6 +194,18 @@ router.post('/save-deck', ensureAuthenticated, (req, res, next) => {
     })
 });
 
+router.get('/score-card', ensureAuthenticated, (req, res, next) => {
+    var {classID, deckIndex, questionNum, score} = req.query;
+    deckIndex = parseInt(deckIndex);
+    Class.findById(classID, (err, cls) => {
+        var decks = cls.decks;
+        decks[deckIndex].cards[questionNum].score = parseInt(score)
+        
+        Class.updateMany({_id: classID}, {$set: {decks}}, (err) => {
+            res.redirect(`/dashboard/deck-view?classID=${classID}&deckIndex=${deckIndex}&questionNum=${parseInt(questionNum)+1}`);
+        })
+    });
+})
 
 module.exports = router;
 

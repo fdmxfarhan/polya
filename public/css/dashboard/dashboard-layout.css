@@ -1,7 +1,7 @@
 /* --------- Declarations ----------- */
 @font-face{
     font-family: 'iransans';
-    src: url('iransans.ttf');
+    src: url('../iransans.ttf');
 }
 @keyframes fade {
     from {opacity: 0;}

@@ -9,24 +9,38 @@ block content
         | فلشکارت: 
         .bold 
             #card-number 1
-            | /#{deck.question.length} 
-    .card-area 
-        .flashcard#question
-            -if(deck.type[0] == 'text')
-                .text= deck.question[0]
-            i.fa.fa-pencil.edit
-            .card-title Q
-        
-        //- button#reveal-ans مشاهده پاسخ
-        #score-btn 
-            .text چقدر این کارت را بلد بودید؟
-            .buttons
-                .score#score1 1
-                    .label اصلا بلد نبودم
-                .score#score2 2
-                .score#score3 3
-                .score#score4 4
-                .score#score5 5
-                    .label خیلی خوب
+            | /#{cards.length} 
+    -if(questionNum < cards.length){
+        .card-area 
+            .flashcard#question
+                -if(cards[questionNum].type == 'text')
+                    .text= cards[questionNum].question
+                -else if(cards[questionNum].type == 'picture')
+                    img(src="#{cards[questionNum].question}")
+                i.fa.fa-pencil.edit
+                .card-title Q
+            .flashcard#answer
+                -if(cards[questionNum].type == 'text')
+                    .text= cards[questionNum].answer
+                -else if(cards[questionNum].type == 'picture')
+                    img(src="#{cards[questionNum].answer}")
+                i.fa.fa-pencil.edit
+                .card-title A
+            
+            
+            button#reveal-ans مشاهده پاسخ
+            #score-btn.hidden 
+                .text چقدر این کارت را بلد بودید؟
+                .buttons
+                    a.score#score1(href="/dashboard/score-card?classID=#{cls._id}&deckIndex=#{deckIndex}&questionNum=#{questionNum}&score=1") 1
+                        .label اصلا بلد نبودم
+                    a.score#score2(href="/dashboard/score-card?classID=#{cls._id}&deckIndex=#{deckIndex}&questionNum=#{questionNum}&score=2") 2
+                    a.score#score3(href="/dashboard/score-card?classID=#{cls._id}&deckIndex=#{deckIndex}&questionNum=#{questionNum}&score=3") 3
+                    a.score#score4(href="/dashboard/score-card?classID=#{cls._id}&deckIndex=#{deckIndex}&questionNum=#{questionNum}&score=4") 4
+                    a.score#score5(href="/dashboard/score-card?classID=#{cls._id}&deckIndex=#{deckIndex}&questionNum=#{questionNum}&score=5") 5
+                        .label خیلی خوب
+    -}else{
+        .finish-studing اتمام مطالعه کارت ها
 
+    -}
     script(src="/js/deck-view.js") 
