@@ -100,11 +100,23 @@ router.get('/class-view', ensureAuthenticated, (req, res, next) => {
             Class.findById(classID, (err, cls) => {
                 for(var i=0; i<cls.decks.length; i++){
                     cls.decks[i].percent = Math.floor(((cls.decks[i].cards.map(e => e.score).filter(e => typeof(e) != 'undefined').length)/cls.decks[i].cards.length) *100);
+                    if(typeof(cls.decks[i].percent) != 'number' || isNaN(cls.decks[i].percent)) cls.decks[i].percent = 0;
                 }
+                var studiedCards = 0;
+                try {
+                    studiedCards = cls.decks.map(e => e.cards.map(c => c.score).filter(c => typeof(c) != 'undefined').length).reduce((a, b) => a+b);
+                } catch (error) {}
+                var numberOfCards = 0;
+                try {
+                    numberOfCards = cls.decks.map(e => e.cards.length).reduce((a, b) => a+b);
+                } catch (error) {}
+
                 res.render('./dashboard/class-view', {
                     user: req.user,
                     cls,
                     classes,
+                    studiedCards,
+                    numberOfCards
                 });
             });
         });

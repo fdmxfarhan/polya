@@ -11,10 +11,10 @@ block content
             .creator سازنده: 
                 a(href="#")= cls.creator
                 .numbers 
-                    .num 3 
-                    | کارت از
-                    .num 20 
-                    | کارت مطالعه شده
+                    .num #{ studiedCards } 
+                    | کارت از 
+                    .num #{ numberOfCards } 
+                    | کارت مطالعه شده 
             .links 
                 a.icon(href="#") 
                     i.fa.fa-gear 
@@ -25,7 +25,7 @@ block content
                         i.fa.fa-plus
                 -}
                 -if(cls.decks.length > 0)
-                    a.button(href="/dashboard/deck-view?classID=#{cls._id}&deckIndex=#{0}") یادگیری 2 دسته
+                    a.button(href="/dashboard/deck-view?classID=#{cls._id}&deckIndex=#{0}") یادگیری #{cls.decks.length} دسته
     .tabs-view 
         .tab#tab1 درباره
         .tab.active#tab1 دسته ها (#{cls.decks.length})
