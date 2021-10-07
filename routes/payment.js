@@ -53,7 +53,7 @@ router.get('/pay', ensureAuthenticated, function(req, res, next) {
                 'name': payment.fullname,
                 'email': payment.email,
                 'desc': payment.description,
-                'callback': 'http://localhost:3000/payment/pay',
+                'callback': 'http://185.141.107.167/payment/pay',
                 'reseller': null,
             },
             json: true,
