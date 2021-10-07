@@ -29,7 +29,14 @@ var UserSchema = new mongoose.Schema({
     type: [String],
     default: [],
   },
-
+  planType: {
+    type: String,
+    default: 'free', // 'forever', 'month', 'year', 'semester', 'free'
+  },
+  expirationDate: {
+    type: Number,
+    default: Date.now(),
+  },
 });
 
 var User = mongoose.model('User', UserSchema);

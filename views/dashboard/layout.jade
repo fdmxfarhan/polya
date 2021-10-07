@@ -83,7 +83,7 @@ html
                                 i.fa.fa-search
                                 .text یافتن فلشکارت
                     -}
-                -if(user.role == 'user')
+                -if(user.role == 'user' && user.planType == 'free')
                     a.upgrade(href="/pricing")  ارتقاء به پنل حرفه‌ای
             .content-area
                 .message-area

@@ -1,0 +1,19 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/css/message.css")
+
+block content
+    .massage
+        h1.title.success  
+            i.fa.fa-check-circle.icon   
+            | پرداخت با موفقیت انجام شد
+        .item نام و نام خانوادگی: #{payment.fullname}
+        .item کد پیگیری: #{payment.track_id}
+        .item مبلغ: #{payment.amount}
+        .item توضیحات: #{payment.description}
+        
+        p.text از اعتماد شما سپاس گزاریم.
+        a.link(href="/dashboard") 
+            i.fa.fa-chevron-left.icon
+            | رفتن به پنل کاربری  

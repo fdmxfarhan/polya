@@ -1,0 +1,86 @@
+@media only screen and (min-width: 600px) {
+    .massage{
+        background-color: white;
+        margin: 10px 15%;
+        padding: 0 3% 3vw 0;
+        text-align: right;
+        direction: rtl;
+        font-family: 'iransans';
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.19);
+        border: lightgrey 1px solid;
+    }
+    .massage h1.title.success{
+        font-size: 2vw;
+        border-bottom: greenyellow 1px solid;
+    }
+    .massage h1.title.fail{
+        font-size: 2vw;
+    }
+    .success{
+        color: green;
+    }
+    .fail{
+        color: red;
+    }
+    .icon{
+        margin-left: 1vw;
+    }
+    .item{
+        font-size: 1.2vw;
+    }
+    p.text{
+        font-size: 1.1vw;
+    }
+    a.link{
+        text-decoration: none;
+        font-size: 1.2vw;
+        color: var(--bgcolor);
+    }
+    a.link:hover{
+        color: blue;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .massage{
+        background-color: white;
+        margin: 10px 15%;
+        padding: 0 3% 3vw 0;
+        text-align: right;
+        direction: rtl;
+        font-family: 'iransans';
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.19);
+        border: lightgrey 1px solid;
+    }
+    .massage h1.title.success{
+        font-size: 4vw;
+        border-bottom: greenyellow 1px solid;
+    }
+    .massage h1.title.fail{
+        font-size: 3vw;
+    }
+    .success{
+        color: green;
+    }
+    .fail{
+        color: red;
+    }
+    .icon{
+        margin-left: 1vw;
+    }
+    .item{
+        font-size: 3vw;
+    }
+    p.text{
+        font-size: 2vw;
+        padding-left: 2vw;
+        text-align: justify;
+    }
+    a.link{
+        text-decoration: none;
+        font-size: 4vw;
+        color: var(--bgcolor);
+    }
+    a.link:hover{
+        color: blue;
+    }
+}

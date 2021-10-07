@@ -36,7 +36,7 @@ block content
                 a(href="/dashboard/deck-view?classID=#{cls._id}&deckIndex=#{i}") 
                     .deck 
                         i.fa.fa-circle-o.circle
-                        -if(cls.decks[i].locked)
+                        -if(cls.decks[i].locked && user.planType == 'free')
                             i.fa.fa-lock.lock
                         -else
                             .percent= cls.decks[i].percent + '%'
@@ -53,7 +53,7 @@ block content
                         //- i.fa.fa-chevron-left.left-icon 
                         a(href="/dashboard/deck-view?classID=#{cls._id}&deckIndex=#{i}") 
                             i.fa.fa-play.left-icon 
-                        -if(cls.decks[i].locked)
+                        -if(cls.decks[i].locked && user.planType == 'free')
                             a.unlock(href="/pricing") باز کردن
             -}
             -if(user.role == 'admin' || user._id.toString() == cls.userID.toString()){

@@ -8,10 +8,24 @@ const mail = require('../config/mail');
 const dateConvert = require('../config/dateConvert');
 const bcrypt = require('bcryptjs');
 
+var checkPlan = (user) => {
+    var classes = user.classes;
+    var classesID = user.classesID;
+    // if(user.planType != 'free'){
+    //     for(var i=0; i<classesID.length; i++){
+    //         for(var j=0; j<classes[classesID[i]].decks.length; j++){
+    //             classes[classesID[i]].decks[j].locked = false;
+    //             console.log('fuck')
+    //         }
+    //     }
+    // }
+    User.updateMany({_id: user._id}, {$set: {classes}}, (err) => {if(err) console.log(err)});
+};
 
 router.get('/', ensureAuthenticated, (req, res, next) => {
     if(req.user.role == 'user')
     {
+        checkPlan(req.user);
         var classes = req.user.classes;
         var classesID = req.user.classesID;
         if(classesID.length > 0)
@@ -247,7 +261,7 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
     var cls = classes[classID];
     var deck = cls.decks[deckIndex];
     
-    if(deck.locked && req.user.role != 'admin') res.redirect(`/pricing`);
+    if(deck.locked && req.user.role != 'admin' && req.user.planType == 'free') res.redirect(`/pricing`);
     else{
         res.render('./dashboard/deck-view', {
             user: req.user,

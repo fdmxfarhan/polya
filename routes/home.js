@@ -5,6 +5,7 @@ const { ensureAuthenticated } = require('../config/auth');
 var Class = require('../models/Class');
 var User = require('../models/User');
 const dateConvert = require('../config/dateConvert');
+const prices = require('../config/prices');
 
 router.get('/', (req, res, next) => {
     res.render('home', {
@@ -15,6 +16,8 @@ router.get('/', (req, res, next) => {
 router.get('/pricing', (req, res, next) => {
     res.render('pricing', {
         user: req.user,
+        prices,
+        dateConvert,
     });
 });
 

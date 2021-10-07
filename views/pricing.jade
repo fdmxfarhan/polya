@@ -7,27 +7,27 @@ block content
         h1.title سریع تر یاد بگیرید
         p.text این یک متن آزمایشی جهت نمایش در این قسمت بوده و بعدا قابل تغییر است. این یک متن آزمایشی جهت نمایش در این قسمت بوده و بعدا قابل تغییر است. این یک متن آزمایشی جهت نمایش در این قسمت بوده و بعدا قابل تغییر است. این یک متن آزمایشی جهت نمایش در این قسمت بوده و بعدا قابل تغییر است. 
         .cards-view
-            a.card(href="#") 
+            a.card(href="/payment/pay?planType=month") 
                 h1 ماهیانه
-                .price 100.000 
+                .price= dateConvert.showPrice(Math.floor(prices.month/10))
                     .currency تومان 
                 p 100.000 تومان هر 1 ماه
                 .upgrade ارتقا به پنل حرفه ای
-            a.card(href="#") 
+            a.card(href="/payment/pay?planType=semester") 
                 h1 ترمی
-                .price 100.000 
+                .price= dateConvert.showPrice(Math.floor(prices.semester/10))
                     .currency تومان 
                 p 100.000 تومان هر 6 ماه
                 .upgrade ارتقا به پنل حرفه ای
-            a.card(href="#") 
+            a.card(href="/payment/pay?planType=year") 
                 h1 سالیانه
-                .price 100.000 
+                .price= dateConvert.showPrice(Math.floor(prices.year/10))
                     .currency تومان 
                 p 100.000 تومان هر 12 ماه
                 .upgrade ارتقا به پنل حرفه ای
-            a.card(href="#") 
+            a.card(href="/payment/pay?planType=forever") 
                 h1 همیشگی
-                .price 100.000 
+                .price= dateConvert.showPrice(Math.floor(prices.forever/10))
                     .currency تومان 
                 p یک بار پرداخت
                 .upgrade ارتقا به پنل حرفه ای
