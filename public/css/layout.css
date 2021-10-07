@@ -8,9 +8,10 @@
     src: url('btitr.ttf');
 }
 :root {
-    --light-background: #F8F8F8;
+    --light-background: #f2f2f2;
     --dark-background: #364152;
     --dark: #232A3A;
+    --graytext: #979292;
     --text: #4B4040;
     --hover: #FF8A47;
     --orange: #FF8A47;
@@ -20,6 +21,7 @@
     --gray: rgb(156, 156, 156);
     --green: #00DB68;
     --lightgray: #c1c3c7;
+    --lightblue: #e1f0f1;
 }
 body{
     margin: 0;

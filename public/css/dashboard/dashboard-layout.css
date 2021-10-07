@@ -186,23 +186,27 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         padding-bottom: 1vw;
         margin-bottom: 1vw;
     }
-    .dashboard .side-bar .scroll-view i.search{
+    .dashboard .side-bar .scroll-view a.search{
         position: absolute;
         color: var(--lightgray);
         font-size: 1.5vw;
-        top: 0.2vw;
+        top: 0;
         left: 0;
         cursor: pointer;
+        text-decoration: none;
+        display: block;
+        padding: 0;
+        margin: 0;
     }
-    .dashboard .side-bar .scroll-view i.search:hover{
+    .dashboard .side-bar .scroll-view a.search:hover{
         color: var(--blue);
     }
     .dashboard .side-bar .scroll-view i.plus{
         position: absolute;
         color: var(--lightgray);
         font-size: 1.5vw;
-        top: 0.2vw;
-        left: 2vw;
+        top: 0.4vw;
+        left: 2.5vw;
         cursor: pointer;
     }
     .dashboard .side-bar .scroll-view i.plus:hover{color: var(--blue);}

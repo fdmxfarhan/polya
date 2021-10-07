@@ -21,7 +21,15 @@ var UserSchema = new mongoose.Schema({
     default: []
   },
   avatar: Number,
-  course: [Object],
+  classes: {
+    type: Object,
+    default: {},
+  },
+  classesID: {
+    type: [String],
+    default: [],
+  },
+
 });
 
 var User = mongoose.model('User', UserSchema);

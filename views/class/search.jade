@@ -1,0 +1,14 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/css/search.css")
+
+block content
+    include ../components/search
+    .classes-list 
+        -for(var i=0; i<classes.length; i++){
+            a.class(href="/class-view?classID=#{classes[i]._id}") 
+                i.fa.icon(class="#{classes[i].icon}")
+                .info 
+                    h1= classes[i].title
+                    p #{classes[i].decks.length} دسته کارت
+        -}

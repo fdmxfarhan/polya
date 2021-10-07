@@ -1,0 +1,212 @@
+@media only screen and (min-width: 800px) {
+    form.search-area{
+        display: block;
+        overflow: hidden;
+        padding: 2vw 3vw;
+        background-color: white;
+        border-top: var(--light-background) 0.1vw solid;
+    }
+    form.search-area i{
+        padding: 0 1vw;
+        font-size: 2.5vw;
+        color: var(--gray);
+        display: block;
+        float: right;
+    }
+    form.search-area input{
+        display: block;
+        float: right;
+        border: none;
+        font-family: 'iransans';
+        color: var(--text);
+        font-size: 1.3vw;
+        padding: 0.3vw 0;
+        width: 80%;
+    }
+    form.search-area input::placeholder{
+        color: var(--lightgray);
+        font-size: 1vw;
+    }
+    form.search-area input:focus{
+        outline: none;
+    }
+    .classes-list{
+        width: 80%;
+        margin: 3vw auto;
+        overflow: hidden;
+        padding: 1vw;
+    }
+    .classes-list .class{
+        display: block;
+        text-decoration: none;
+        float: right;
+        width: 22%;
+        /* margin-left: 1%; */
+        overflow: hidden;
+        margin-bottom: 1vw;
+        padding: 1vw;
+    }
+    .classes-list .class:hover i.icon{
+        background-color: var(--lightblue);
+    }
+    .classes-list .class i.icon{
+        float: right;
+        font-size: 4vw;
+        padding: 0.5vw;
+        width: 4vw;
+        text-align: center;
+        background-color: white;
+        color: var(--blue);
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+        margin-left: 1vw;
+    }
+    .classes-list .class h1{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        color: var(--text);
+        margin-top: 0.8vw;
+    }
+    .classes-list .class p{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1vw;
+        color: var(--lightgray);
+        /* margin-top: 0.8vw; */
+    }
+    .info-view{
+        width: 80%;
+        margin: 6vw auto;
+        overflow: hidden;
+        margin-bottom: 10vw;
+    }
+    .info-view i.icon{
+        float: right;
+        font-size: 10vw;
+        padding: 5vw 0;
+        width: 22vw;
+        text-align: center;
+        background-color: white;
+        color: var(--blue);
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+        margin-left: 1vw;
+    }
+    .info-view .info{
+        float: right;
+        margin-right: 3vw;
+    }
+    .info-view .info h1{
+        font-family: 'iransans';
+        font-size: 2vw;
+        margin: 0;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        font-weight: bold;
+    }
+    .info-view .info p{
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        margin: 0;
+        color: var(--text);
+    }
+    .info-view .info h2{
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        color: var(--text);
+        margin-top: 2vw;
+    }
+    .info-view .info h2 a{
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        text-decoration: none;
+        color: var(--blue);
+    }
+    .info-view .info h2 a i{
+        padding: 0 0.5vw;
+    }
+    .info-view .info h2 a:hover{
+        color: var(--orange);
+    }
+    .info-view .info a.button{
+        color: white;
+        background-color: var(--orange);
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        text-decoration: none;
+        padding: 1.5vw 6vw;
+        display: block;
+        width: fit-content;
+        margin-top: 1vw;
+    }
+    .info-view .info a.button:hover{
+        background-color: var(--green);
+    }
+    .white-content {
+        background-color: white;
+    }
+    .statistics{
+        overflow: hidden;
+    }
+    .statistics .col{
+        float: right;
+        width: 33%;
+        text-align: center;
+        padding: 2vw 0;
+        font-family: 'iransans';
+        font-size: 2vw;
+        color: var(--graytext);
+    }
+    .statistics .col i{
+        padding: 0 1vw;
+    }
+    .white-content h1.title{
+        font-family: 'iransans';
+        text-align: center;
+        font-size: 2.5vw;
+        color: var(--text);
+    }
+    .white-content .deck{
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        border-bottom: var(--lightgray) 0.01vw solid;
+        padding: 2vw 3vw;
+        text-align: center;
+    }
+    .white-content .deck:hover{
+        background-color: var(--light-background);
+    }
+    .white-content .deck i.icon{
+        flex: 1;
+        color: var(--blue);
+        font-size: 5vw;
+    }
+    .white-content .deck .info{
+        flex: 3;
+        text-align: right;
+    }
+    .white-content .deck .num{
+        padding-top: 1vw;
+        color: var(--gray);
+        flex: 2;
+        font-size: 1.2vw;
+    }
+    .white-content .deck i.chev{
+        padding-top: 1vw;
+        flex: 1;
+        font-size: 1.7vw;
+        color: var(--blue);
+    }
+    .white-content .deck .info h1{
+        font-family: 'iransans';
+        font-size: 1.5vw;
+        margin: 0;
+    }
+    .white-content .deck .info p{
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        color: var(--text);
+        margin: 0;
+    }
+    
+}

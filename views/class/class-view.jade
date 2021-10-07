@@ -1,0 +1,40 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/css/search.css")
+
+block content
+    include ../components/search
+    .info-view 
+        i.fa.icon(class="#{cls.icon}")
+        .info 
+            h1= cls.title
+            p این کلاس توسط #{cls.creator} ساخته شده،
+            p برای اطلاعات بیشتر پروفایل ایشان را ببینید.
+            h2 سازنده فلشکارت ها: 
+                a(href="#")= cls.creator
+                    i.fa.fa-user
+            -if(user)
+                a.button(href="/study-class?classID=#{cls._id}") شروع یادگیری
+            -else
+                a.button(href="/users/login") شروع یادگیری
+    .white-content 
+        .statistics 
+            .col 
+                i.fa.fa-list
+                | #{cls.decks.length} دسته
+            .col 
+                i.fa.fa-list-alt
+                | #{cls.decks.map(e => e.cards.length).reduce((a,b) => a+b) } فلشکارت
+            .col 
+                i.fa.fa-users
+                | #{0} کاربر
+        h1.title دسته های این کلاس (#{cls.decks.length})
+        -for(var i=0; i<cls.decks.length; i++){
+            .deck
+                i.fa.fa-copy.icon
+                .info 
+                    h1= cls.decks[i].title
+                    p= dateConvert.get_year_month_day(new Date(cls.decks[i].creationDate))
+                .num #{cls.decks[i].cards.length} کارت
+                i.fa.fa-chevron-left.chev
+        -}
