@@ -155,10 +155,8 @@ router.get('/class-view', ensureAuthenticated, (req, res, next) => {
             {
                 var classes = req.user.classes;
                 var classesID = req.user.classesID;
-                if(!classes[classID]){
-                    classes[classID] = cls;
-                    classesID.push(classID);
-                }
+                classes[classID] = cls;
+                classesID.push(classID);
                 User.updateMany({_id: req.user._id}, {$set: {classes, classesID}}, (err) => {
                     Class.find({}, (err, classes) => {
                         for(var i=0; i<cls.decks.length; i++){
@@ -241,11 +239,11 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
     var classes = req.user.classes;
     var classesID = req.user.classesID;
     var cls = classes[classID];
-
+    console.log(cls);
     var deck = cls.decks[deckIndex];
     if(deck.locked && req.user.role != 'admin') res.redirect(`/pricing`);
     else{
-            res.render('./dashboard/deck-view', {
+        res.render('./dashboard/deck-view', {
             user: req.user,
             cls,
             deck,

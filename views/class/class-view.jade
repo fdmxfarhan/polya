@@ -23,8 +23,9 @@ block content
                 i.fa.fa-list
                 | #{cls.decks.length} دسته
             .col 
+                -var cards = cls.decks.map(e => e.cards.length);
                 i.fa.fa-list-alt
-                | #{cls.decks.map(e => e.cards.length).reduce((a,b) => a+b) } فلشکارت
+                | #{cards.length == 0 ? 0 : cards.reduce((a,b) => a+b) } فلشکارت
             .col 
                 i.fa.fa-users
                 | #{0} کاربر

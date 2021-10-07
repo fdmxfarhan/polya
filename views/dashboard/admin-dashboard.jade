@@ -2,6 +2,7 @@ extends layout
 
 block styles
     link(rel="stylesheet", href="/css/dashboard/admin-dashboard.css")
+    link(rel="stylesheet", href="/css/classes-view.css")
 
 block content
     .cards-view 
@@ -30,15 +31,22 @@ block content
                 .passed(style="width: #{numberOfFlashcards > 100? 100 : numberOfFlashcards}%")
             h1.title فلشکارت‌ها
     
-    .charts-view 
-        .chart1 
-            #chart1
-        .chart2
-            #chart2
-            a(href="#") 
-                i.fa.fa-address-card
-                | مشاهده کارت‌ها
-        
+    //- .charts-view 
+    //-     .chart1 
+    //-         #chart1
+    //-     .chart2
+    //-         #chart2
+    //-         a(href="#") 
+    //-             i.fa.fa-address-card
+    //-             | مشاهده کارت‌ها
+    .classes-list 
+        -for(var i=0; i<classes.length; i++){
+            a.class(href="/class-view?classID=#{classes[i]._id}") 
+                i.fa.icon(class="#{classes[i].icon}")
+                .info 
+                    h1= classes[i].title
+                    p #{classes[i].decks.length} دسته کارت
+        -}
     
     script(src="/js/admin-dashboard.js") 
 
