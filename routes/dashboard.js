@@ -17,11 +17,13 @@ router.get('/', ensureAuthenticated, (req, res, next) => {
         if(classesID.length > 0)
             res.redirect(`/dashboard/class-view?classID=${classesID[0]}`)
         else{
-            res.render('./dashboard/user-dashboard', {
-                user: req.user,
-                login: req.query.login,
-                classes,
-                classesID
+            Class.find({}, (err, classes) => {
+                res.render('./dashboard/user-dashboard', {
+                    user: req.user,
+                    login: req.query.login,
+                    classes,
+                    classesID
+                });
             });
         }
     }
@@ -101,10 +103,8 @@ router.post('/add-class', ensureAuthenticated, (req, res, next) => {
             var classID = newClass._id.toString();
             var classes = req.user.classes;
             var classesID = req.user.classesID;
-            if(!classes[classID]){
-                classes[classID] = newClass;
-                classesID.push(classID);
-            }
+            if(!classes[classID])   classesID.push(classID);
+            classes[classID] = newClass;
             User.updateMany({_id: req.user._id}, {$set: {classes, classesID}}, (err) => {
                 res.redirect(`/dashboard/class-view?classID=${classID}`);
             })
@@ -155,8 +155,8 @@ router.get('/class-view', ensureAuthenticated, (req, res, next) => {
             {
                 var classes = req.user.classes;
                 var classesID = req.user.classesID;
+                if(!classes[classID]) classesID.push(classID);
                 classes[classID] = cls;
-                classesID.push(classID);
                 User.updateMany({_id: req.user._id}, {$set: {classes, classesID}}, (err) => {
                     Class.find({}, (err, classes) => {
                         for(var i=0; i<cls.decks.length; i++){
@@ -234,13 +234,19 @@ router.get('/remove-deck', ensureAuthenticated, (req, res, next) => {
 });
 router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
     var {classID, deckIndex, questionNum} = req.query;
-    if(!questionNum) questionNum = 0;
-    else questionNum = parseInt(questionNum)
     var classes = req.user.classes;
+    if(!questionNum) {
+        questionNum = 0;
+        classes[classID].decks[deckIndex].cards.sort(function (a, b) {
+            return a.score - b.score;
+        });
+        User.updateMany({_id: req.user._id}, {$set: {classes}}, (err) => {if(err) console.log(err)});
+    }
+    else questionNum = parseInt(questionNum)
     var classesID = req.user.classesID;
     var cls = classes[classID];
-    console.log(cls);
     var deck = cls.decks[deckIndex];
+    
     if(deck.locked && req.user.role != 'admin') res.redirect(`/pricing`);
     else{
         res.render('./dashboard/deck-view', {

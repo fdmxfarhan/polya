@@ -54,7 +54,7 @@ block content
                         a(href="/dashboard/deck-view?classID=#{cls._id}&deckIndex=#{i}") 
                             i.fa.fa-play.left-icon 
                         -if(cls.decks[i].locked)
-                            a.unlock(href="#") باز کردن
+                            a.unlock(href="/pricing") باز کردن
             -}
             -if(user.role == 'admin' || user._id.toString() == cls.userID.toString()){
                 .add-deck#add-deck-btn2

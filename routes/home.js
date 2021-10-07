@@ -53,10 +53,8 @@ router.get('/study-class', (req, res, next) => {
     Class.findById(classID, (err, cls) => {
         var classes = req.user.classes;
         var classesID = req.user.classesID;
-        if(!classes[classID]){
-            classes[classID] = cls;
-            classesID.push(classID);
-        }
+        if(!classes[classID]) classesID.push(classID);
+        classes[classID] = cls;
         User.updateMany({_id: req.user._id}, {$set: {classes, classesID}}, (err) => {
             res.redirect(`./dashboard/class-view?classID=${classID}`);
         })
