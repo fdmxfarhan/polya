@@ -260,18 +260,27 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
     var classesID = req.user.classesID;
     var cls = classes[classID];
     var deck = cls.decks[deckIndex];
+    var scores = deck.cards.map(e => e.score).filter(e => typeof(e) != 'undefined');
     
     if(deck.locked && req.user.role != 'admin' && req.user.planType == 'free') res.redirect(`/pricing`);
     else{
-        res.render('./dashboard/deck-view', {
-            user: req.user,
-            cls,
-            deck,
-            classes,
-            deckIndex,
-            questionNum,
-            cards: deck.cards
-        });
+        if(scores.length > 1 && questionNum == deck.cards.length && scores.reduce((a, b) => a + b) != deck.cards.length*5){
+            res.redirect(`/dashboard/deck-view?classID=${classID}&deckIndex=${deckIndex}`)
+        }
+        else if(deck.cards.score == 5){
+            res.redirect(`/dashboard/deck-view?classID=${classID}&deckIndex=${deckIndex}&questionNum=${questionNum+1}`)
+        }
+        else{
+            res.render('./dashboard/deck-view', {
+                user: req.user,
+                cls,
+                deck,
+                classes,
+                deckIndex,
+                questionNum,
+                cards: deck.cards
+            });
+        }
     }
 });
 router.get('/edit-deck', ensureAuthenticated, (req, res, next) => {
