@@ -12,7 +12,6 @@ router.get('/', (req, res, next) => {
         user: req.user,
     });
 });
-
 router.get('/pricing', (req, res, next) => {
     res.render('pricing', {
         user: req.user,
@@ -20,18 +19,7 @@ router.get('/pricing', (req, res, next) => {
         dateConvert,
     });
 });
-
 router.get('/search', (req, res, next) => {
-    Class.find({}, (err, classes) => {
-        res.render('./class/search', {
-            user: req.user,
-            classes,
-        })
-    })
-});
-
-router.post('/search', (req, res, next) => {
-    var {text} = req.body;
     Class.find({public: true}, (err, classes) => {
         res.render('./class/search', {
             user: req.user,
@@ -39,7 +27,28 @@ router.post('/search', (req, res, next) => {
         })
     })
 });
-
+var searchClass = (cls, text) => {
+    if(cls.title.search(text) != -1) return true;
+    if(cls.creator.search(text) != -1) return true;
+    if(cls.title.search(text) != -1) return true;
+    if(cls.icon.search(text) != -1) return true;
+    return false;
+}
+router.post('/search', (req, res, next) => {
+    var {text} = req.body;
+    Class.find({public: true}, (err, allClasses) => {
+        classes = [];
+        for(var i=0; i<allClasses.length; i++){
+            if(searchClass(allClasses[i], text))
+                classes.push(allClasses[i]);
+        }
+        res.render('./class/search', {
+            user: req.user,
+            classes,
+            text,
+        })
+    })
+});
 router.get('/class-view', (req, res, next) => {
     var {classID} = req.query;
     Class.findById(classID, (err, cls) => {
@@ -50,7 +59,6 @@ router.get('/class-view', (req, res, next) => {
         });
     });
 });
-
 router.get('/study-class', (req, res, next) => {
     var {classID} = req.query;
     Class.findById(classID, (err, cls) => {
@@ -63,6 +71,5 @@ router.get('/study-class', (req, res, next) => {
         })
     });
 });
-
 
 module.exports = router;
