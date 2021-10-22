@@ -31,6 +31,8 @@ for(var i=0; i<200; i++){
 router.post('/save-deck', ensureAuthenticated, upload.fields(uploadFields), (req, res, next) => {
     console.log(req.body)
     var {numberOfCards, classID, deckIndex} = req.body;
+    var classes = req.user.classes;
+    var classesID = req.user.classesID;
     deckIndex = parseInt(deckIndex);
     Class.findById(classID, (err, cls) => {
         cards = [];
@@ -97,7 +99,12 @@ router.post('/save-deck', ensureAuthenticated, upload.fields(uploadFields), (req
         }
         console.log(cards);
         decks[deckIndex].cards = cards;
+        cls.decks = decks;
         Class.updateMany({_id: classID}, {$set: {decks}}, (err) => {
+            if(cls.userID == req.user._id.toString()) {
+                classes[classID] = cls;
+                User.updateMany({_id: req.user._id}, {$set: {classes}}, (err) => {if(err) console.log(err)});
+            }
             req.flash('success_msg', 'تغییرات با موفقیت ثبت شد');
             res.redirect(`/dashboard/edit-deck?classID=${classID}&deckIndex=${deckIndex}`)
         })

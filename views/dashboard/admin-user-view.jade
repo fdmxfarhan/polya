@@ -1,0 +1,35 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/css/dashboard/users-view.css")
+    link(rel="stylesheet", href="/css/components/login.css")
+
+block content
+    .title-view 
+        h1= viewingUser.fullname
+        h2 
+    .content-view 
+        .users-view 
+            .classes-list 
+                -var classes1 = viewingUser.classes
+                -var classesID1 = viewingUser.classesID
+                -for(var i=0; i<classesID1.length; i++){
+                    -var cls = classes1[classesID1[i]];
+                    a.class(href="/class-view?classID=#{cls._id}") 
+                        i.fa.icon(class="#{cls.icon}")
+                        .info 
+                            h1= cls.title
+                            p #{cls.decks.length} دسته کارت
+                -}
+
+        .user-control 
+            .control 
+                .item= viewingUser.fullname 
+                .item= viewingUser.email
+                .item نوع پلن: #{viewingUser.planType}
+
+                
+    include ../components/add-user
+    script(src="/js/users-view.js") 
+
+

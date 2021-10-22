@@ -232,7 +232,54 @@
         font-size: 1vw;
         color: var(--lightgray);
     }    
-    
+    .content-view .user-control .control .item{
+        padding: 0.5vw 1vw;
+    }
+
+    .classes-list{
+        width: 100%;
+        margin: 1vw auto;
+        overflow: hidden;
+        padding: 1vw;
+    }
+    .classes-list .class{
+        display: block;
+        text-decoration: none;
+        float: right;
+        width: 45%;
+        /* margin-left: 1%; */
+        overflow: hidden;
+        margin-bottom: 1vw;
+        padding: 1vw;
+    }
+    .classes-list .class:hover i.icon{
+        background-color: var(--lightblue);
+    }
+    .classes-list .class i.icon{
+        float: right;
+        font-size: 4vw;
+        padding: 0.5vw;
+        width: 4vw;
+        text-align: center;
+        background-color: white;
+        color: var(--blue);
+        box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
+        margin-left: 1vw;
+    }
+    .classes-list .class h1{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        color: var(--text);
+        margin-top: 0.8vw;
+    }
+    .classes-list .class p{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1vw;
+        color: var(--lightgray);
+        /* margin-top: 0.8vw; */
+    }
 }
 @media only screen and (max-width: 800px) {
     

@@ -99,6 +99,21 @@ router.get('/users', ensureAuthenticated, (req, res, next) => {
     }
     else res.send('Access Denied');
 });
+router.get('/user-view', ensureAuthenticated, (req, res, next) => {
+    var {userID} = req.query;
+    if(req.user.role == 'admin'){
+        Class.find({$or: [{public: true}, {userID: req.user._id}]}, (err, classes) => {
+            User.findOne({_id: userID}, (err, viewingUser) => {
+                res.render('./dashboard/admin-user-view', {
+                    user: req.user,
+                    viewingUser,
+                    classes,
+                });
+            });
+        });
+    }
+    else res.send('Access Denied');
+});
 router.post('/add-class', ensureAuthenticated, (req, res, next) => {
     var {title, iconElement} = req.body;
     var public = true;
@@ -137,11 +152,7 @@ router.get('/class-view', ensureAuthenticated, (req, res, next) => {
                 var classes = req.user.classes;
                 var classesID = req.user.classesID;
                 var cls = classes[classID];
-                if(cls.userID == req.user._id) {
-                    cls = clsTemp;
-                    classes[classID] = clsTemp;
-                    User.updateMany({_id: req.user._id}, {$set: {classes}}, (err) => {if(err) console.log(err)});
-                }
+                
                 
                 for(var i=0; i<cls.decks.length; i++){
                     var scores = cls.decks[i].cards.map(e => e.score).filter(e => typeof(e) != 'undefined');
@@ -199,6 +210,8 @@ router.get('/class-view', ensureAuthenticated, (req, res, next) => {
 });
 router.post('/add-deck', ensureAuthenticated, (req, res, next) => {
     var {classID, title} = req.body;
+    var classes = req.user.classes;
+    var classesID = req.user.classesID;
     Class.findById(classID, (err, cls) => {
         var decks = cls.decks;
         var locked = false;
@@ -211,6 +224,10 @@ router.post('/add-deck', ensureAuthenticated, (req, res, next) => {
             cards: [],
         })
         Class.updateMany({_id: classID}, {$set: {decks}}, (err) => {
+            if(cls.userID == req.user._id.toString()) {
+                classes[classID] = cls;
+                User.updateMany({_id: req.user._id}, {$set: {classes}}, (err) => {if(err) console.log(err)});
+            }
             res.redirect(`/dashboard/class-view?classID=${classID}`);
         })
     });
@@ -238,10 +255,16 @@ router.get('/remove-class', ensureAuthenticated, (req, res, next) => {
 });
 router.get('/remove-deck', ensureAuthenticated, (req, res, next) => {
     var {classID, deckIndex} = req.query;
+    var classes = req.user.classes;
+    var classesID = req.user.classesID;
     Class.findById(classID, (err, cls) => {
         var decks = cls.decks;
         decks.splice(deckIndex, 1);
         Class.updateMany({_id: classID}, {$set: {decks}}, (err) => {
+            if(cls.userID == req.user._id.toString()) {
+                classes[classID] = cls;
+                User.updateMany({_id: req.user._id}, {$set: {classes}}, (err) => {if(err) console.log(err)});
+            }
             res.redirect(`/dashboard/class-view?classID=${classID}`);
         });
     });
@@ -324,6 +347,9 @@ router.get('/edit-deck', ensureAuthenticated, (req, res, next) => {
 router.post('/save-deck', ensureAuthenticated, (req, res, next) => {
     console.log(req.body);
     var {classID, deckIndex, question, answer, type} = req.body;
+    var classes = req.user.classes;
+    var classesID = req.user.classesID;
+    
     deckIndex = parseInt(deckIndex);
     if(typeof(question) == 'string' && typeof(answer) == 'string'){
         question = [question];
@@ -343,7 +369,12 @@ router.post('/save-deck', ensureAuthenticated, (req, res, next) => {
         decks[deckIndex].question = question;
         decks[deckIndex].answer = answer;
         decks[deckIndex].type = type;
+        cls.decks = decks;
         Class.updateMany({_id: classID}, {$set: {decks}}, (err) => {
+            if(cls.userID == req.user._id.toString()) {
+                classes[classID] = cls;
+                User.updateMany({_id: req.user._id}, {$set: {classes}}, (err) => {if(err) console.log(err)});
+            }
             req.flash('success_msg', 'تغییرات با موفقیت ثبت شد');
             res.redirect(`/dashboard/edit-deck?classID=${classID}&deckIndex=${deckIndex}`)
         })
