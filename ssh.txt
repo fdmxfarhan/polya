@@ -1,1 +1,4 @@
-ssh root@185.81.96.144
+Hostname=server3.panel01.com
+IP Address=185.141.107.167
+Username=administrator / root
+Password=oJ1we0v6S5
