@@ -66,18 +66,24 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
     header{
         position: relative;
         overflow: hidden;
+        height: 100vh;
     }
     header img{
         width: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
     }
     header .dark-overlay{
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 34, 73, 0.267);
         position: absolute;
         top: 0;
         right: 0;
         width: 100%;
-        height: 98.5%;
+        height: 100%;
         z-index: 10;
+        margin: 0;
+        padding: 0;
     }
     header .info{
         position: absolute;
@@ -394,6 +400,365 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
     }
     .bottom-image .info p{
         font-size: 2vw;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    header{
+        position: relative;
+        overflow: hidden;
+        height: 55vh;
+    }
+    header img{
+        width: 150%;
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    header .dark-overlay{
+        background-color: rgba(0, 34, 73, 0.267);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        margin: 0;
+        padding: 0;
+    }
+    header .info{
+        position: absolute;
+        z-index: 20;
+        top: 7vw;
+        right: 5%;
+        color: white;
+    }
+    header .info h1{
+        font-family: 'btitr';
+        font-size: 11vw;
+        margin: 0;
+        margin-top: -4vw;
+        /* margin-bottom: -1vw; */
+    }
+    header .info h2{
+        font-size: 4vw;
+        font-family: 'iransans';
+        font-weight: normal;
+        margin: 0;
+        margin-bottom: 7vw;
+    }
+    header .info a.button{
+        font-family: 'iransans';
+        background-color: white;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 4.5vw;
+        padding: 2vw 5vw;
+        margin-left: 4vw;
+        transition-duration: 500ms;
+        display: block;
+        text-align: center;
+        margin-bottom: 3vw;
+    }
+    header .info a.button.blue-button{
+        background-color: var(--button);
+        color: white;
+    }
+    header .info a.button:hover{
+        background-color: var(--hover);
+        color: white;
+    }
+    header .info a.video-link{
+        font-family: 'iransans';
+        color: white;
+        text-decoration: none;
+        font-size: 3.5vw;
+        padding: 1vw 0;
+        margin-left: 4vw;
+        transition-duration: 500ms;
+        font-weight: bold;
+    }
+    header .info a.video-link i{
+        color: var(--text);
+        background-color: white;
+        padding: 1.3vw 1.3vw 1.3vw 2vw;
+        border-radius: 50%;
+        font-size: 4vw;
+        margin-left: 1vw;
+    }
+    header .control{
+        position: absolute;
+        top: 10vw;
+        left: 2%;
+        z-index: 20;
+    }
+    header .control i{
+        display: block;
+        margin: auto;
+        margin-bottom: 1.5vw;
+        font-size: 1.6vw;
+        color: rgba(255, 255, 255, 0.3);
+        transition-duration: 500ms;
+        cursor: pointer;
+    }
+    header .control i.active{
+        color: rgba(255, 255, 255, 0.8);
+    }
+    header .control i:hover{
+        color: rgba(255, 255, 255, 0.8);
+    }
+    section .mockup{
+        overflow: hidden;
+        width: 90%;
+        margin: auto;
+        margin-top: 8vw;
+        margin-bottom: 0;
+        /* background-color: lightblue; */
+    }
+    .col70{width: 70%;}
+    .col65{width: 65%;}
+    .col60{width: 60%;}
+    .col50{width: 50%;}
+    .col40{width: 40%;}
+    .col35{width: 35%;}
+    .col30{width: 30%;}
+    .col20{width: 20%;}
+    .col10{width: 10%;}
+    section.light{background-color: var(--light-background);color: var(--text);}
+    section.dark{background-color: var(--dark-background);color: white;}
+    section{
+        margin: 0;
+        overflow: hidden;
+    }
+    section .column{
+        float: right;
+        /* background-color: lightpink; */
+        overflow: hidden;
+    }
+    section .mockup .column.img{
+        height: 65vw;
+    }
+    section .mockup .column img{
+        width: 90%;
+        margin: 0 5%;
+        margin-top: 20vw;
+    }
+    section .mockup .column h1{
+        color: black;
+        font-family: 'iransans';
+        margin: 0;
+        font-size: 5vw;
+        font-weight: bold;
+        line-height: 5vw;
+    }
+    section .mockup .column p{
+        color: var(--gray);
+        font-size: 3.5vw;
+        margin-top: 4vw;
+        text-align: justify;
+        width: 95%;
+    }
+    section .mockup .column a.button{
+        font-family: 'iransans';
+        background-color: var(--button);
+        color: white;
+        text-decoration: none;
+        font-size: 3.5vw;
+        padding: 2vw 5vw;
+        margin-left: 4vw;
+        transition-duration: 500ms;
+        display: block;
+        width: fit-content;
+        margin-top: 2vw;
+    }
+    section .mockup .column a.button:hover{
+        background-color: var(--hover);
+    }
+    section .mockup .column.info{
+        padding-top: 8vw;
+    }
+    section .statistics .column.col70{
+        width: 60%;
+    }
+    section .statistics .column.col30{
+        width: 40%;
+    }
+    section .statistics{
+        overflow: hidden;
+        width: 90%;
+        margin: 6vw auto;
+    }
+    section .statistics .column.info{
+        padding-top: 10vw;
+    }
+    section .statistics .column.info h1{
+        font-family: 'iransans';
+        font-size: 5vw;
+        margin: 0;
+        line-height: 8vw;
+    }
+    section .statistics .column.info h2{
+        font-weight: normal;
+        font-family: 'iransans';
+        font-size: 3.4vw;
+    }
+    section .statistics .column.info h2 i{
+        padding-left: 1.5vw;
+        font-size: 3vw;
+    }
+    section .statistics .column .item{
+        overflow: hidden;
+        margin: 4vw 0;
+    }
+    section .statistics .column .item i{
+        float: right;
+        font-size: 3vw;
+        width: 5vw;
+        text-align: center;
+        font-weight: normal;
+        padding-top: 1vw;
+    }
+    section .statistics .column .item h1{
+        float: right;
+        font-weight: normal;
+        font-family: 'iransans';
+        font-size: 3vw;
+        padding-right: 1vw;
+        margin: 0;
+        padding-top: 0vw;
+        /* padding: 1vw; */
+    }
+
+    section .card-content{
+        overflow: hidden;
+        width: 90%;
+        margin: 6vw auto;
+    }
+    section .card-content h1.title{
+        text-align: center;
+        color: black;
+        font-size: 5vw;
+    }
+    section .card-content h2.title{
+        font-weight: normal;
+        font-size: 3.7vw;
+        margin-top: 8vw;
+    }
+    section .card-content h2.title i{
+        color: rgb(255, 129, 25);
+        font-size: 3.7vw;
+        padding-left: 1vw;
+    }
+    .cards-view{
+        margin-top: 2vw;
+        overflow: hidden;
+        width: 100%;
+    }
+    .cards-view .card{
+        float: right;
+        margin-left: 4vw;
+        margin-top: 3vw;
+    }
+    .cards-view .card h1{
+        margin: 0;
+        text-align: center;
+        font-size: 3.5vw;
+        color: var(--text);
+    }
+    .cards-view .card img{
+        width: 40vw;
+        height: 35vw;
+        border-radius: 1vw;
+    }
+    .cards-view .card img:hover{
+        box-shadow: 0 0 0.8vw 0.3vw rgba(0, 0, 0, 0.2);
+
+    }
+    section .pricing{
+        overflow: hidden;
+        margin-top: 6vw;
+    }
+    section .pricing .column{
+        width: 100%;
+    }
+    section .pricing .column.blue-col{
+        background-color: #EAF6FD;
+        border-top: #A5D9F2 1vw solid;
+        min-height: 85vw;
+    }
+    section .pricing .column.red-col{
+        background-color: #fff0f0;
+        border-top: #FBD1BA 1vw solid;
+        min-height: 85vw;
+    }
+    section .pricing .column h1.title{
+        font-family: 'iransans';
+        font-size: 8vw;
+        padding: 0 5vw;
+        margin-top: 8vw;
+        color: black;
+        font-weight: bolder;
+        margin-bottom: 1vw;
+    }
+    section .pricing .column .price{
+        padding: 0 5vw;
+        font-size: 5vw;
+        font-weight: bolder;
+        font-family: 'btitr';
+    }
+    section .pricing .column.red-col .price{color: #FF8A47;}
+    section .pricing .column.blue-col .price{color: #29A5DC;}
+    section .pricing .column .item{
+        padding: 0 5vw;
+        margin: 4vw 0;
+    }
+    section .pricing .column.red-col .item h1{
+        font-size: 3.5vw;
+        color: #FF8A47;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+    section .pricing .column.blue-col .item h1{
+        font-size: 3.5vw;
+        color: #29A5DC;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
+    section .pricing .column .item p{
+        font-size: 3.3vw;
+        color: var(--text);
+        text-align: justify;
+        width: 80%;
+        margin-top: 0;
+    }
+    .bottom-image{
+        position: relative;
+        background-color: var(--dark);
+    }
+    .bottom-image img{
+        width: 100%;
+    }
+    .bottom-image .dark-overlay{
+        background-color: rgba(0, 0, 0, 0.493);
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 98.5%;
+    }
+    .bottom-image .info{
+        position: absolute;
+        top: 5vw;
+        right: 5vw;
+    }
+    .bottom-image .info h1{
+        font-size: 6vw;
+        margin: 0;
+        line-height: 10vw;
+    }
+    .bottom-image .info p{
+        font-size: 4vw;
     }
 
 }

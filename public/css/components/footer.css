@@ -56,3 +56,61 @@
     }
 }
 
+@media only screen and (max-width: 800px) {
+    footer{
+        background-color: var(--dark);
+        overflow: hidden;
+        margin: 0;
+        padding: 5vw 10vw;
+        position: relative;
+    }
+    footer .part{
+        width: 25%;
+        float: right;
+    }
+    footer .part h1{
+        color: white;
+        font-size: 1.3vw;
+    }
+    footer .part a{
+        color: rgb(170, 170, 170);
+        text-decoration: none;
+        display: block;
+        font-family: 'iransans';
+        font-size: 1vw;
+        margin-top: 0.5vw;
+        width: fit-content;
+    }
+    footer .part a:hover{
+        color: var(--blue);
+
+    }
+    footer .part a.store{
+        display: block;
+        width: 100%;
+    }
+    footer .part a.store img{
+        width: 60%;
+    }
+    footer .part .socials a{
+        display: inline;
+        font-size: 2vw;
+        margin-right: 0.5vw;
+    }
+    footer .part .socials a:hover{
+        color: var(--blue);
+    }
+    footer h1.copyright{
+        text-align: center;
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        color: rgb(212, 212, 212);
+        font-weight: normal;
+        position: absolute;
+        width: 100%;
+        bottom: 1vw;
+        right: 0;
+    }
+}
+

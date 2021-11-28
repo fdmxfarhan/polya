@@ -11,19 +11,19 @@ block content
                 h1 ماهیانه
                 .price= dateConvert.showPrice(Math.floor(prices.month/10))
                     .currency تومان 
-                p 100.000 تومان هر 1 ماه
+                p #{dateConvert.showPrice(Math.floor(prices.month/10))} تومان هر 1 ماه
                 .upgrade ارتقا به پنل حرفه ای
             a.card(href="/payment/pay?planType=semester") 
                 h1 ترمی
                 .price= dateConvert.showPrice(Math.floor(prices.semester/10))
                     .currency تومان 
-                p 100.000 تومان هر 6 ماه
+                p #{dateConvert.showPrice(Math.floor(prices.semester/10))} تومان هر 6 ماه
                 .upgrade ارتقا به پنل حرفه ای
             a.card(href="/payment/pay?planType=year") 
                 h1 سالیانه
                 .price= dateConvert.showPrice(Math.floor(prices.year/10))
                     .currency تومان 
-                p 100.000 تومان هر 12 ماه
+                p #{dateConvert.showPrice(Math.floor(prices.year/10))} تومان هر 12 ماه
                 .upgrade ارتقا به پنل حرفه ای
             a.card(href="/payment/pay?planType=forever") 
                 h1 همیشگی

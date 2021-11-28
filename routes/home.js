@@ -10,6 +10,8 @@ const prices = require('../config/prices');
 router.get('/', (req, res, next) => {
     res.render('home', {
         user: req.user,
+        prices,
+        dateConvert,
     });
 });
 router.get('/pricing', (req, res, next) => {

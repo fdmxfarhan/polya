@@ -19,7 +19,7 @@ html
         include components/navbar
         
         header 
-            img(src="/img/home/image-1.jpg")
+            img(src="/img/home/img-03.jpeg")
             .dark-overlay
             .info 
                 h1 مهارت
@@ -121,7 +121,7 @@ html
                         p تمام فلشکارت‌ها و متریک ها در وب سایت و اپلیکیشن همزمان قابل دسترسی هستند.
                 .column.col50.red-col
                     h1.title امکانات حرفه‌ای
-                    .price 100 هزار تومان/ماه
+                    .price #{dateConvert.showPrice(Math.floor(prices.month/10))} هزار تومان/ماه
                     .item
                         h1 کارت های نامحدود
                         p بدون محدودیت روزانه استفاده از فلشکارت ها
@@ -145,9 +145,9 @@ html
                 img(src="/img/home/checkpoint.jpg")
                 .dark-overlay 
                 .info
-                    h1 فکر کن.
-                    h1 یاد بگیر.
-                    h1 موفق شو.
+                    h1 فکر کن
+                    h1 یاد بگیر
+                    h1 موفق شو
                     p با پولیا یک ماجراجویی در یادگیری تجربه کنید.
         
         include components/login
