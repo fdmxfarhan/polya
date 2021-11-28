@@ -146,11 +146,11 @@ seo.setConfig({
 // Set the default tags
 seo.setDefaults({
     // html: "<a href='https://www.instagram.com/junior_cup/'>Follow me on instagram</a>" // Special property to insert html in the body (interesting to insert links)
-    title: "polya", // Page title
+    title: "Cartan", // Page title
     // All the other properties will be inserted as a meta property
     description: {
-        en: "juniorcup",
-        fa: "polya"
+        en: "Cartan",
+        fa: "Cartan"
     },
     image: "https://juniorcup.ir/images/landing/Juniorcup2021b-min.jpg"
 });

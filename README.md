@@ -1,2 +1,2 @@
-# polya
-Polya Web Application
+# Cartan
+Cartan Web Application
