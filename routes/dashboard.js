@@ -145,8 +145,20 @@ router.post('/add-class', ensureAuthenticated, (req, res, next) => {
 });
 router.get('/class-view', ensureAuthenticated, (req, res, next) => {
     var classID = req.query.classID;
+    var calculate = req.query.calculate;
     if(classID){
         Class.findById(classID, (err, cls) => {
+            for(var i=0;i<cls.decks.length; i++){
+                if(cls.decks[i].percent) cls.decks[i].percent = 0;
+                if(calculate){
+                    var classes = req.user.classes;
+                    var cls = classes[classID];
+                    sum = 0;
+                    for(var t=0; t<cls.cards.length;t++)
+                        sum += cls.cards[t].score;
+                    cls.decks[i].percent = Math.floor((sum/cls.cards.length*5)*100);
+                }
+            }
             if(req.user.role == 'user'){
                 var clsTemp = cls;
                 var classes = req.user.classes;
@@ -250,7 +262,12 @@ router.get('/remove-class', ensureAuthenticated, (req, res, next) => {
         }
     }
     User.updateMany({_id: req.user._id}, {$set: {classes, classesID}}, (err) => {
-        res.redirect('/dashboard');
+        if(req.user.role == 'admin'){
+            Class.deleteMany({_id: classID}, (err) => {
+                res.redirect('/dashboard');
+            })
+        }
+        else res.redirect('/dashboard');
     })
 });
 router.get('/remove-deck', ensureAuthenticated, (req, res, next) => {
@@ -287,7 +304,10 @@ router.get('/deck-view', ensureAuthenticated, (req, res, next) => {
     
     if(deck.locked && req.user.role != 'admin' && req.user.planType == 'free') res.redirect(`/pricing`);
     else{
-        if(scores.length > 1 && questionNum == deck.cards.length && scores.reduce((a, b) => a + b) != deck.cards.length*5){
+        sumScore = 0;
+        for(var i=0; i<scores.length; i++)
+            sumScore += scores[i];
+        if(questionNum == deck.cards.length && sumScore < deck.cards.length*5){
             res.redirect(`/dashboard/deck-view?classID=${classID}&deckIndex=${deckIndex}`)
         }
         else if(deck.cards.score == 5){
