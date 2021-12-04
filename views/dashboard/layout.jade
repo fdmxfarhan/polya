@@ -46,7 +46,7 @@ html
                                         .info 
                                             h1= classes[classesID[i]].title
                                             .progress-bar
-                                                .passed(style="width: 20%")
+                                                .passed(style="width: #{classes[classesID[i]].decks.length > 0 ? classes[classesID[i]].decks.reduce((a, b) => a.percent+b.percent) : 0}%")
                                         a(href="/dashboard/remove-class?classID=#{classes[classesID[i]]._id}") 
                                             i.fa.fa-trash.delete
                             -}
