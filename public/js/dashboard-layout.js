@@ -80,4 +80,16 @@ $(document).ready(function(){
             $('i.'+icon).addClass('active');
         });
     });
+
+
+
+
+    $('.side-bar-collapse-btn').click(() => {
+        $('#dashboard-sidebar-menu').fadeIn(500);
+        $('.side-bar-modal').fadeIn(500);
+    });
+    $('.side-bar-modal').click(() => {
+        $('#dashboard-sidebar-menu').fadeOut(500);
+        $('.side-bar-modal').fadeOut(500);
+    })
 });

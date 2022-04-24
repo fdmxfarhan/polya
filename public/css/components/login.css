@@ -356,15 +356,15 @@
         background-color: white;
         position: fixed;
         top: 6vw;
-        right: 35%;
-        width: 26%;
+        right: 5%;
+        width: 85%;
         z-index: 110;
         padding: 2vw 2vw;
         border-radius: 2vw;
     }
     .login-popup .close-login {
         position: absolute;
-        font-size: 1.5vw;
+        font-size: 3.5vw;
         font-weight: normal;
         top: 2vw;
         right: 2vw;
@@ -381,7 +381,7 @@
     .login-popup h1.title{
         text-align: center;
         font-family: 'iransans';
-        font-size: 2vw;
+        font-size: 4vw;
         color: var(--darkblue);
         margin: 0;
     }
@@ -391,7 +391,7 @@
         text-align: center;
         margin-top: 1vw;
         font-family: 'iransans';
-        font-size: 1.2vw;
+        font-size: 3.2vw;
         text-decoration: none;
         color: var(--blue);
         padding: 0.4vw 0;
@@ -413,7 +413,7 @@
         padding-left: 1vw;
         margin-right: 8vw;
         padding-top: 0.3vw;
-        font-size: 1.5vw;
+        font-size: 3.5vw;
         color: black;
     }
     .login-popup .br-line {
@@ -444,7 +444,7 @@
         width: 94%;
         display: block;
         font-family: 'iransans';
-        font-size: 1.1vw;
+        font-size: 3.1vw;
         padding: 0.5vw 3%;
         background-color: white;
     }
@@ -454,7 +454,7 @@
         right: 3%;
         transition-duration: 500ms;
         color: gray;
-        font-size: 1.1vw;
+        font-size: 3.1vw;
     }
     .login-popup .text-input input:focus{
         outline: none;
@@ -465,7 +465,7 @@
         border-radius: 2vw;
         border: none;
         font-family: 'iransans';
-        font-size: 1.3vw;
+        font-size: 3.3vw;
         padding: 0.4vw 3vw;
         display: block;
         width: fit-content;
@@ -510,7 +510,7 @@
     }
     .register-popup .column30 h1{
         color: white;
-        font-size: 1.2vw;
+        font-size: 3.2vw;
         margin: 1vw 1vw;
         margin-top: 19vw;
         margin-bottom: 0;
@@ -538,7 +538,7 @@
     }
     .register-popup .close-register {
         position: absolute;
-        font-size: 1.5vw;
+        font-size: 3.5vw;
         font-weight: normal;
         top: 2vw;
         left: 2vw;
@@ -554,7 +554,7 @@
     }
     .register-popup h1.title{
         color: var(--darkblue);
-        font-size: 2vw;
+        font-size: 4vw;
         margin-top: 2vw;
         margin-right: 3vw;
     }
@@ -625,18 +625,15 @@
         width: 100%;
         display: block;
         font-family: 'iransans';
-        font-size: 1vw;
+        font-size: 3vw;
         padding: 0.2vw 3%;
         background-color: white;
         margin-top: 0;
     }
     .register-popup .text-input .label{
-        /* position: absolute;
-        top: -1.5vw;
-        right: 0; */
         transition-duration: 500ms;
         color: gray;
-        font-size: 1vw;
+        font-size: 3vw;
         margin-bottom: 0;
     }
     .register-popup .text-input input:focus{
@@ -648,7 +645,7 @@
         border-radius: 2vw;
         border: none;
         font-family: 'iransans';
-        font-size: 1.3vw;
+        font-size: 3.3vw;
         padding: 0.4vw 3vw;
         display: block;
         width: fit-content;
