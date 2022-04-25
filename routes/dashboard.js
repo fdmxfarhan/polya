@@ -149,15 +149,17 @@ router.get('/class-view', ensureAuthenticated, (req, res, next) => {
     if(classID){
         Class.findById(classID, (err, cls) => {
             var cls2 = req.user.classes[classID];
-            for(var i=0;i<cls2.decks.length; i++){
-                cls2.decks[i].percent = 100;
-                // if(!cls2.decks[i].percent) cls2.decks[i].percent = 0;
-                // if(calculate){
-                //     sum = 0;
-                //     for(var t=0; t<cls2.decks[i].cards.length;t++)
-                //         sum += cls2.decks[i].cards[t].score;
-                //     cls2.decks[i].percent = Math.floor((sum/cls2.decks[i].cards.length*5)*100);
-                // }
+            if(cls2){
+                for(var i=0;i<cls2.decks.length; i++){
+                    cls2.decks[i].percent = 100;
+                    // if(!cls2.decks[i].percent) cls2.decks[i].percent = 0;
+                    // if(calculate){
+                    //     sum = 0;
+                    //     for(var t=0; t<cls2.decks[i].cards.length;t++)
+                    //         sum += cls2.decks[i].cards[t].score;
+                    //     cls2.decks[i].percent = Math.floor((sum/cls2.decks[i].cards.length*5)*100);
+                    // }
+                }
             }
             req.user.classes[classID] = cls2;
             if(req.user.role == 'user'){

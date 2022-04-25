@@ -154,24 +154,24 @@
 @media only screen and (max-width: 800px) {
     h1.deck-title{
         font-family: 'iransans';
-        font-size: 1.1vw;
+        font-size: 3.1vw;
         font-weight: normal;
-        margin-top: 3vw;
-        margin-right: 2vw;
+        margin-top: 6vw;
+        margin-right: 3vw;
         color: var(--gray);
     }
     h1.deck-title .bold{
         font-weight: bold;
         display: inline;
         color: var(--text);
-        margin-left: 0.5vw;
+        margin-left: 3.5vw;
     }
     .card-area .flashcard{
-        width: 60%;
+        width: 90%;
         background-color: white;
         margin: 0 auto;
         height: 65vh;
-        border-radius: 1vw;
+        border-radius: 2vw;
         display: flex;
         align-items: center;
         align-content: center;

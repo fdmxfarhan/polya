@@ -95,7 +95,103 @@
 
 }
 @media only screen and (max-width: 800px) {
-    
+    .edit-deck{
+        width: 85%;
+        margin: 3vw auto;
+    }
+    .edit-deck h1.title{
+        color: var(--blue);
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 3.8vw;
+    }
+    .edit-deck table{
+        text-align: right;
+        width: 100%;
+        margin-top: 6vw;
+    }
+    .edit-deck table th{
+        color: var(--text);
+        padding: 0.4vw 0;
+        border-bottom: var(--gray) 0.5vw solid;
+    }
+    .edit-deck table td{
+        padding: 0.5vw 0;
+        border-bottom: var(--lightgray) 0.3vw solid;
+    }
+    .edit-deck table td input[type=file]{
+        width: 30vw;
+        font-size: 3vw;
+    }
+    .edit-deck table i.delete{
+        color: red;
+        font-size: 6vw;
+        cursor: pointer;
+        padding: 0.2vw 1.2vw;
+        border-radius: 50%;
+    }
+    .edit-deck table i.change-to-picture, .edit-deck table i.change-to-text{
+        color: var(--blue);
+        font-size: 5.4vw;
+        cursor: pointer;
+        padding: 0.2vw 0.4vw;
+        border-radius: 50%;
+    }
+    .edit-deck table i.change-to-picture:hover, .edit-deck table i.change-to-text:hover{
+        color: var(--orange);
+    }
+    .edit-deck table i.delete:hover{
+        background-color: red;
+        color: white;
+    }
+    .edit-deck table textarea{
+        width: 90%;
+        padding: 0.6vw 1vw;
+        font-family: 'iransans';
+        font-size: 3vw;
+        border: var(--lightgray) 0.1vw solid;
+        border-radius: 0.5vw;
+        resize: vertical;
+        height: 10vw;
+    }
+    .edit-deck table textarea:focus{
+        outline: none;
+        border: var(--blue) 0.1vw solid;
+    }
+    .edit-deck button.submit{
+        background-color: var(--blue);
+        font-family: 'iransans';
+        font-size: 3.2vw;
+        color: white;
+        padding: 1vw 6vw;
+        border-radius: 2vw;
+        cursor: pointer;
+        border: none;
+        margin-top: 3vw;
+    }
+    .edit-deck button.submit:hover{
+        background-color: var(--orange);
+    }
+    .edit-deck button.submit i{
+        padding-left: 2vw;
+    }
+    #add-flashcard {
+        margin-top: 1vw;
+        color: var(--blue);
+        font-family: 'iransans';
+        font-size: 3.3vw;
+        padding: 0.5vw 0;
+        cursor: pointer;
+    }
+    #add-flashcard:hover{
+        color: var(--orange);
+    }
+    #add-flashcard i{
+        padding-left: 2vw;
+    }
+    .edit-deck table td img.preview{
+        height: 7vw;
+    }
 }
 
 
