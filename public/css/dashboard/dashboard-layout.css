@@ -1247,37 +1247,37 @@ body::-webkit-scrollbar-thumb:hover{background: var(--blue);}
         overflow: hidden;
         width: 90%;
         margin: auto;
-        margin-bottom: 1vw;
+        margin-bottom: 3vw;
     }
     .dashboard .side-bar .statistic .name{
         float: right;
         color: white;
-        font-size: 1vw;
+        font-size: 3vw;
         width: 3vw;
         text-align: left;
-        margin-left: 1vw;
-        padding-top: 0.2vw;
+        margin-left: 5vw;
+        padding-top: 0.6vw;
     }
     .dashboard .side-bar .statistic .progressbar{
         float: right;
         background-color: var(--gray);
-        height: 2vw;
+        height: 5vw;
         width: 65%;
         /* margin-top: 0.4vw; */
-        border-radius: 0.2vw;
+        border-radius: 0.9vw;
     }
     .dashboard .side-bar .statistic .number{
         float: right;
         color: white;
-        font-size: 1vw;
-        margin-right: 1vw;
-        padding-top: 0.2vw;
+        font-size: 3vw;
+        margin-right: 3vw;
+        padding-top: 0.6vw;
     }
     .dashboard .side-bar .statistics-view{
         margin-top: 4vw;
     }
     .dashboard .side-bar .statistics-view .bar{
-        height: 2vw;
+        height: 5vw;
         background-color: var(--dark);
         border-radius: 0.2vw;
     }

@@ -15,11 +15,13 @@ html
     body
         .black-modal
         .transparent-modal
-        
+        .side-bar-collapse-btn
+            i.fa.fa-chevron-left
+        .side-bar-modal
         include ../components/add-class
         include ../components/setting
         .dashboard
-            .side-bar 
+            .side-bar#dashboard-sidebar-menu
                 a.settings(href="#") 
                     i.fa.fa-gear#setting-btn 
                 a.logo(href="/") 

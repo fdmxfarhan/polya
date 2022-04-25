@@ -73,14 +73,14 @@
         background-color: white;
         color: var(--blue);
         box-shadow: 0 0 0.5vw 0.1vw rgba(0, 0, 0, 0.1);
-        margin-left: 1vw;
+        margin-left: 3vw;
     }
     .classes-list .class h1{
         margin: 0;
         font-family: 'iransans';
         font-size: 3.3vw;
         color: var(--text);
-        margin-top: 1.5vw;
+        margin-top: 0;
     }
     .classes-list .class p{
         margin: 0;
